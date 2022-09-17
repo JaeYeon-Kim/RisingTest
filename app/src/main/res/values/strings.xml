@@ -1,3 +1,11 @@
 <resources>
+    <!-- Login Activity -->
     <string name="app_name">RisingTest_TodayHouse_TeamB</string>
+    <string name="login_main_text_1">지금 가입하면 최대 10만원</string>
+    <string name="login_main_text_2">쿠폰 증정!</string>
+    <string name="login_login_email_text"><u>이메일로 로그인</u></string>
+    <string name="login_join_email_text"><u>이메일로 가입</u></string>
+    <string name="login_btn_kakao_text">카카오톡으로 계속하기</string>
+    <string name="login_btn_problem_text">로그인에 문제가 있으신가요?</string>
+    <string name="login_btn_nonMembers_text">비회원 주문 조회하기</string>
 </resources>
