@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB">
         <activity
+            android:name=".src.login.joinemail.EmailJoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".src.login.joinemail.JoinEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".src.login.loginemail.EmailLoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".src.login.LoginActivity"
             android:exported="false" />
         <activity
@@ -23,7 +32,7 @@
         </activity>
         <activity
             android:name=".src.main.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

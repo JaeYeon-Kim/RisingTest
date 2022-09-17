@@ -13,6 +13,21 @@
     <color name="kakao_login_problem_textColor">#ADB7BB</color>
     <color name="kakao_login_nonMembers_textColor">#959A9D</color>
 
+    <!-- EmailLoginActivity -->
+    <color name="email_login_btn_background">#A3E4F9</color>
+    <color name="email_login_btn_textColor">#BFFFFFFF</color>
+    <color name="email_login_passwordReset_textColor">#757575</color>
+    <color name="email_login_et_strokeColor">#DCDCDC</color>
+    <color name="email_login_et_textColor">#DCDCDC</color>
+
+    <!-- EmailJoinActivity -->
+    <color name="email_join_hint_textColor">#CBCBCB</color>
+    <color name="email_join_expert_textColor">#787878</color>
+    <color name="email_join_btn_customColor">#FAFAFA</color>
+    <color name="email_join_btn_textColor">#C2C9CB</color>
+    <color name="email_join_checkbox_subTextColor">#AAB2B6</color>
+    <color name="email_join_checkbox_essentialColor">#7ED2EC</color>
+    <color name="email_join_checkbox_selectColor">#C2C9CB</color>
 
     <!-- Basic Color -->
     <color name="black">#FF000000</color>

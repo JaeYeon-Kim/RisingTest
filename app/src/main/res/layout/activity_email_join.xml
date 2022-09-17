@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.login.joinemail.EmailJoinActivity">
+
+    <ImageView
+        android:id="@+id/emailJoin_btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/loginemail_back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailJoin_tv_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/emailJoin_main_text"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/emailJoin_btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/emailJoin_btn_back" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/emailJoin_btn_expert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="#00FF0000"
+        android:text="@string/emailJoin_btn_expert_text"
+        android:textColor="@color/email_join_expert_textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_tv_main" />
+
+    <EditText
+        android:id="@+id/emailJoin_et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/email_login_et_custom"
+        android:hint="@string/emailLogin_et_email_hint"
+        android:inputType="text"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_btn_expert" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/emailJoin_btn_verify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/email_join_btn_custom"
+        android:text="@string/emailJoin_btn_email_verify_text"
+        android:textColor="@color/email_join_btn_textColor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_et_email" />
+
+    <EditText
+        android:id="@+id/emailJoin_et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/email_login_et_custom"
+        android:hint="@string/emailJoin_et_password_hint"
+        android:inputType="numberPassword"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_btn_verify" />
+
+    <EditText
+        android:id="@+id/emailJoin_et_passwordCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/email_login_et_custom"
+        android:hint="@string/emailJoin_et_passwordCheck_hint"
+        android:inputType="numberPassword"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_et_password" />
+
+    <EditText
+        android:id="@+id/emailJoin_et_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/email_login_et_custom"
+        android:hint="@string/emailJoin_et_nickname_text"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_et_passwordCheck" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emailJoin_layout_terms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/email_login_et_custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailJoin_et_nickname">
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_whole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_whole"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/emailJoin_checkBox_subText"
+            android:textColor="@color/email_join_checkbox_subTextColor"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_whole"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_whole"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_whole" />
+
+        <LinearLayout
+            android:id="@+id/emailJoin_terms_boundaryLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/email_login_et_custom"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_checkBox_whole" />
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_1"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_terms_boundaryLine" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_checkBox_1_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/emailJoin_option_text_essential"
+            android:textColor="@color/email_join_checkbox_essentialColor"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_1"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_1"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_1" />
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_2"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_checkBox_1" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_checkBox_2_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/emailJoin_option_text_essential"
+            android:textColor="@color/email_join_checkbox_essentialColor"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_2"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_2"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_2" />
+
+        <ImageView
+            android:id="@+id/emailJoin_iv_checkBox_2_more"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FF0000"
+            android:src="@drawable/email_join_select_btn"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_2" />
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_3"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_checkBox_2" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_checkBox_3_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/emailJoin_option_text_essential"
+            android:textColor="@color/email_join_checkbox_essentialColor"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_3"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_3"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_3"
+            app:layout_goneMarginStart="10dp" />
+
+        <ImageView
+            android:id="@+id/emailJoin_iv_checkBox_3_more"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FF0000"
+            android:src="@drawable/email_join_select_btn"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_3" />
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_4"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_checkBox_3" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_checkBox_4_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/emailJoin_option_text_select"
+            android:textColor="@color/email_join_checkbox_selectColor"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_4"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_4"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_4" />
+
+        <ImageView
+            android:id="@+id/emailJoin_iv_checkBox_4_more"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
+            android:background="#00FF0000"
+            android:src="@drawable/email_join_select_btn"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_4" />
+
+        <CheckBox
+            android:id="@+id/emailJoin_checkBox_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/emailJoin_checkBox_text_5"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailJoin_checkBox_4" />
+
+        <TextView
+            android:id="@+id/emailJoin_tv_checkBox_5_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/emailJoin_checkBox_5"
+            app:layout_constraintBottom_toBottomOf="@id/emailJoin_checkBox_5"
+            app:layout_constraintTop_toTopOf="@id/emailJoin_checkBox_5"
+            android:text="@string/emailJoin_option_text_select"
+            android:textColor="@color/email_join_checkbox_selectColor"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
