@@ -1,4 +1,17 @@
 <resources>
+    <!-- Store Fragment -->
+    <string name="store_search_text">스토어 검색</string>
+    <string name="store_category_text_1">주방필템</string>
+    <string name="store_what_mainText">어떤 상품을 찾나요?</string>
+    <string name="store_what_btn_">카테고리 전체</string>
+
+
+
+
+
+
+
+
     <!-- Login Activity -->
     <string name="app_name">RisingTest_TodayHouse_TeamB</string>
     <string name="login_main_text_1">지금 가입하면 최대 10만원</string>
@@ -32,5 +45,19 @@
     <string name="emailJoin_checkBox_text_5">이벤트, 쿠폰, 특가 알림 메일 및 SMS 등 수신</string>
     <string name="emailJoin_option_text_essential">(필수)</string>
     <string name="emailJoin_option_text_select">(선택)</string>
+    <string name="emailJoin_recommend_text">친구에게 추천받고 오셨나요?(선택사항)</string>
+    <string name="emailJoin_recommend_hint">추천코드 입력</string>
+    <string name="emailJoin_complete_text">회원가입 완료</string>
+
+    <!-- 반복적으로 쓰이는 것들 -->
+    <string name="ok_text">확인</string>
+    <string name="cancel_text">닫기</string>
+
+    <!-- 커스텀 다이얼로그 xml text -->
+    <string name="dialog_never_text">다시 보지 않기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="appBar_scrolling_view_behavior" translatable="false"></string>
+
 
 </resources>

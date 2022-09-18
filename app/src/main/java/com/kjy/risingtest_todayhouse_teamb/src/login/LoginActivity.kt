@@ -11,7 +11,9 @@ import android.text.style.StyleSpan
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityLoginBinding
+import com.kjy.risingtest_todayhouse_teamb.src.login.joinemail.EmailJoinActivity
 import com.kjy.risingtest_todayhouse_teamb.src.login.loginemail.EmailLoginActivity
+import com.kjy.risingtest_todayhouse_teamb.src.main.MainActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         loginTextCustom()
 
         // 이메일로 로그인
-        LoginEmail()
+        loginEmail()
+
+        // 이메일로 가입하기
+        joinEmail()
+
+        binding.loginBtnNaver.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
     }
 
@@ -44,9 +55,17 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     }
 
     // 이메일로 로그인 클릭시 해당 액티비티로 이동
-    private fun LoginEmail() {
+    private fun loginEmail() {
         binding.loginBtnEmailLogin.setOnClickListener {
             val intent = Intent(this, EmailLoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    private fun joinEmail() {
+        binding.loginBtnEmailJoin.setOnClickListener {
+            val intent = Intent(this, EmailJoinActivity::class.java)
             startActivity(intent)
             finish()
         }

@@ -3,16 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/dialog_bg_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/email_join_btn_custom.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/email_join_btn_custom_2.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/email_login_et_custom.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/home_btn_search_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/login_btn_custom.xml" value="0.1175" />
         <entry key="app/src/main/res/drawable/loginemail_btn_custom.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable/nav_home_complete.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/nav_move_complete.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/nav_my_complete.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/nav_selector_color.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/nav_store_complete.xml" value="0.2265" />
         <entry key="app/src/main/res/layout/activity_email_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_email_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_expert_web.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_join_email.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_store.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/main_dialog_custom.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/layout/store_category_list.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/main_bottom_nav.xml" value="0.3104166666666667" />
       </map>
     </option>
   </component>

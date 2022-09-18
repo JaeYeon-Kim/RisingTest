@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kjy.risingtest_todayhouse_teamb">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,17 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB">
         <activity
-            android:name=".src.login.joinemail.EmailJoinActivity"
+            android:name=".src.login.joinemail.expert.ExpertWebActivity"
             android:exported="false" />
         <activity
-            android:name=".src.login.joinemail.JoinEmailActivity"
-            android:exported="false" />
+            android:name=".src.login.joinemail.EmailJoinActivity"
+            android:exported="true" />
         <activity
             android:name=".src.login.loginemail.EmailLoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".src.login.LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true">

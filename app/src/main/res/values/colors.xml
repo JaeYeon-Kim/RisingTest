@@ -6,6 +6,16 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <!-- StoreFragment -->
+    <color name="store_btn_background">#F3F3F3</color>
+    <color name="store_btn_search_textColor">#CBCBCB</color>
+
+
+    <!-- MainActivity -->
+    <color name="main_nav_backgroundColor">#F7F9FB</color>
+    <color name="main_nav_textColor_off">#6F787D</color>
+    <color name="main_nav_textColor_on">#35C5F0</color>
+
     <!-- LoginActivity -->
     <color name="kakao_login_btn_background">#F7E600</color>
     <color name="kakao_login_btn_textColor">#424142</color>
@@ -28,6 +38,13 @@
     <color name="email_join_checkbox_subTextColor">#AAB2B6</color>
     <color name="email_join_checkbox_essentialColor">#7ED2EC</color>
     <color name="email_join_checkbox_selectColor">#C2C9CB</color>
+    <color name="email_join_recommend_hintColor">#D7D7D7</color>
+    <color name="email_join_btn_background">#35C5F0</color>
+    <color name="email_join_sv_color">#927ED2EC</color>
+
+    <!-- Dialog xml -->
+    <color name="dialog_btn_never_textColor">#999999</color>
+    <color name="dialog_btn_cancel_textColor">#FFFFFF</color>
 
     <!-- Basic Color -->
     <color name="black">#FF000000</color>
