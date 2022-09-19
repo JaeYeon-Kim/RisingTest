@@ -15,7 +15,7 @@
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB">
         <activity
             android:name=".src.login.joinemail.expert.ExpertWebActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".src.login.joinemail.EmailJoinActivity"
             android:exported="true" />

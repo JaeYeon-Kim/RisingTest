@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/drawable/nav_my_complete.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/nav_selector_color.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/nav_store_complete.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/store_btn_categorymore_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/layout/activity_email_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_email_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_expert_web.xml" value="0.22760416666666666" />
@@ -23,7 +24,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_homeparty.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.3104166666666667" />
+        <entry key="app/src/main/res/layout/fragment_photo.xml" value="0.303125" />
+        <entry key="app/src/main/res/layout/fragment_popular.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/fragment_store.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_dialog_custom.xml" value="0.3104166666666667" />
         <entry key="app/src/main/res/layout/store_category_list.xml" value="0.33" />

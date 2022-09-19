@@ -9,6 +9,7 @@
     <!-- StoreFragment -->
     <color name="store_btn_background">#F3F3F3</color>
     <color name="store_btn_search_textColor">#CBCBCB</color>
+    <color name="store_btn_moreCategory">#35C5F0</color>
 
 
     <!-- MainActivity -->

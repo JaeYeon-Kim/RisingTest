@@ -13,10 +13,12 @@ import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreCategoryAda
 
 class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store){
 
-    private val categoryList = mutableListOf<CategoryData>()
+    private var categoryList = mutableListOf<CategoryData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
 
         // 스와이프 리프레시 레이아웃 기능 넣기
@@ -31,6 +33,13 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
         // 스토어 프래그먼트 메인 카테고리 리사이클러뷰
         categoryRecycler()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.storeSv.viewTreeObserver.removeOnScrollChangedListener{
+
+        }
     }
 
     // 스토어 프래그먼트의 메인 카테고리 리사이클러뷰 구현
@@ -52,6 +61,7 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         adapter.categoryList = categoryList
         val layoutManager = GridLayoutManager(requireContext(), 5)
         binding.storeRvCategory.layoutManager = layoutManager
+        adapter.notifyDataSetChanged()
 
     }
 

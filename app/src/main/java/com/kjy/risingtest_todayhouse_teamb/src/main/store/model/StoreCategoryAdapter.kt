@@ -1,5 +1,6 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store.model
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +22,7 @@ class StoreCategoryAdapter: RecyclerView.Adapter<CategoryHolder>() {
     }
 
     override fun getItemCount(): Int {
+        Log.d("카테고리 리스트 사이즈", "${categoryList.size}")
         return categoryList.size
     }
 }
