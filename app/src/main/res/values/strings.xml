@@ -1,4 +1,18 @@
 <resources>
+
+
+    <!-- Home Fragment-->
+    <string name="home_toolbar_text">오늘의집 통합검색</string>
+    <!-- Home_Popular Fragment -->
+    <string name="popular_category_titleText">쇼핑하기</string>
+    <string name="popular_content1_titleText">방이 작아도 나한텐 딱 맞아요</string>
+    <string name="popular_more_btnText">더보기</string>
+
+
+
+
+
+
     <!-- Store Fragment -->
     <string name="store_search_text">스토어 검색</string>
     <string name="store_category_text_1">주방필템</string>

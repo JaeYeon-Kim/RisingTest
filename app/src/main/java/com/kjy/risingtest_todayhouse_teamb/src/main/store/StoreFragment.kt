@@ -3,6 +3,7 @@ package com.kjy.risingtest_todayhouse_teamb.src.main.store
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.GridLayoutManager
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
@@ -14,6 +15,8 @@ import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreCategoryAda
 class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store){
 
     private var categoryList = mutableListOf<CategoryData>()
+
+    private lateinit var listener: ViewTreeObserver.OnScrollChangedListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,7 +30,7 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
             binding.storeLayoutRefresh.isRefreshing = false
         }
 
-        binding.storeSv.viewTreeObserver.addOnScrollChangedListener {
+        listener = ViewTreeObserver.OnScrollChangedListener {
             binding.storeLayoutRefresh.isEnabled = (binding.storeSv.scrollY == 0)
         }
 
@@ -37,9 +40,7 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
     override fun onStop() {
         super.onStop()
-        binding.storeSv.viewTreeObserver.removeOnScrollChangedListener{
-
-        }
+        binding.storeSv.viewTreeObserver.removeOnScrollChangedListener(listener)
     }
 
     // 스토어 프래그먼트의 메인 카테고리 리사이클러뷰 구현
@@ -61,7 +62,6 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         adapter.categoryList = categoryList
         val layoutManager = GridLayoutManager(requireContext(), 5)
         binding.storeRvCategory.layoutManager = layoutManager
-        adapter.notifyDataSetChanged()
 
     }
 

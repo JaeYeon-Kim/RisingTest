@@ -2,13 +2,10 @@ package com.kjy.risingtest_todayhouse_teamb.src.login
 
 import android.content.Intent
 import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.StyleSpan
-import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityLoginBinding
 import com.kjy.risingtest_todayhouse_teamb.src.login.joinemail.EmailJoinActivity

@@ -6,6 +6,11 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <!-- Home - Popular -->
+    <color name="popular_backgroundColor">#F8F8FA</color>
+    <color name="popular_btnColor">#EAEAEF</color>
+    <color name="popular_btnTextColor">#565B62</color>
+
     <!-- StoreFragment -->
     <color name="store_btn_background">#F3F3F3</color>
     <color name="store_btn_search_textColor">#CBCBCB</color>

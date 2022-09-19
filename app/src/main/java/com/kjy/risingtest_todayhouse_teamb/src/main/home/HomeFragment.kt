@@ -1,6 +1,8 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.home
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import com.google.android.material.tabs.TabLayoutMediator
 import com.kjy.risingtest_todayhouse_teamb.R
@@ -18,6 +20,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         // 프래그먼트 목록 생성
         val fragmentList = listOf(PopularFragment(), PhotoFragment(), HomepartyFragment())
         // 어댑터 생성후 프래그먼트 목록 저장
@@ -33,5 +36,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             tab.text = tabTitles[position]
 
         }.attach()
+
     }
+
+    // 메뉴 생성
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.home_toolbar_menu, menu)
+    }
+
 }
