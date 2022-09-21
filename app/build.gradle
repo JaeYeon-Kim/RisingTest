@@ -59,4 +59,8 @@ dependencies {
 
     // https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
+
+    // 뷰페이저 인디케이터 라이브러리
+    implementation("com.tbuonomo:dotsindicator:4.3")
+
 }

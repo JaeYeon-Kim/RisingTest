@@ -47,6 +47,11 @@
     <string name="store_category_text_1">주방필템</string>
     <string name="store_what_mainText">어떤 상품을 찾나요?</string>
     <string name="store_categoryMore_text">카테고리 전체</string>
+    <string name="store_recent_text">최근 본 상품</string>
+    <string name="store_recent_itemBrand_text">하포스침대</string>
+    <string name="store_recent_itemTitle_text">[5%쿠폰][단독]하모니 LED 조명 서랍형 수납침대(매트리스 포함)</string>
+    <string name="store_recent_itemPercent_text"></string>
+    <string name="store_recent_itemScore_text">4.6</string>
 
 
     <!-- Login Activity -->

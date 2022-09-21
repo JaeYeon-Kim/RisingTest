@@ -20,6 +20,11 @@
     <color name="store_btn_background">#F3F3F3</color>
     <color name="store_btn_search_textColor">#CBCBCB</color>
     <color name="store_btn_moreCategory">#35C5F0</color>
+    <color name="store_main_backgroundColor">#F9F9FB</color>
+    <color name="store_line_backgroundColor">#FAFAFB</color>
+    <color name="store_indicator_color_off">#F9F9F7</color>
+    <color name="store_indicator_color_on">#FFFFFF</color>
+
 
 
     <!-- MainActivity -->
