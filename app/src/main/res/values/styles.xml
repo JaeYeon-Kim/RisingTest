@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 탭 레이아웃 속성 변경을 위한 스타일 -->
+    <style name="tabTextSizeBold" parent="TextAppearance.Design.Tab">
+        <item name ="android:textSize">14sp</item>
+        <item name ="android:textStyle">bold</item>
+    </style>
+
+
+</resources>

@@ -74,6 +74,11 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/home_tabLayout"
+                app:tabMode="fixed"
+                app:tabTextAppearance="@style/tabTextSizeBold"
+                app:tabTextColor="@color/home_tabLayout_textColor_off"
+                app:tabSelectedTextColor="@color/home_tabLayout_textColor_on"
+                app:tabIndicatorColor="@color/home_tabLayout_textColor_on"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

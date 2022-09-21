@@ -1,16 +1,45 @@
 <resources>
 
 
+    <!-- Main Activity -->
+    <string name="main_floating_noticeText"><u>집들이,노하우 업로드 안내</u></string>
+    <string name="main_floating_btnText_1">사진 올리기</string>
+    <string name="main_floating_btnText_2">동영상 올리기</string>
+    <string name="main_floating_btnText_3">상품 리뷰쓰기</string>
+    <string name="main_floating_btnText_4">인테리어시공 리뷰쓰기</string>
+    <string name="main_floating_btnText_5">인테리어 질문하기</string>
+    <string name="main_floating_eventText_1">첫 사진을 올리면 1,000P</string>
+    <string name="main_floating_eventText_2">매일 인기동영상 최대 4,000P</string>
+    <string name="main_floating_eventText_3">모두 쓰면 500P</string>
+    <string name="main_floating_eventText_4">최대 5,000P</string>
+
+
     <!-- Home Fragment-->
     <string name="home_toolbar_text">오늘의집 통합검색</string>
+
     <!-- Home_Popular Fragment -->
     <string name="popular_category_titleText">쇼핑하기</string>
     <string name="popular_content1_titleText">방이 작아도 나한텐 딱 맞아요</string>
+    <string name="popular_content2_titleText">나만 몰랐던 국민 가성비템 모음</string>
+    <string name="popular_content3_titleText">보기만 해도 기분 좋아지는 애정템</string>
+    <string name="popular_content4_titleText">카테고리별 상품찾기</string>
     <string name="popular_more_btnText">더보기</string>
-
-
-
-
+    <string name="popular_find_text_1">가구</string>
+    <string name="popular_find_text_2">패브릭</string>
+    <string name="popular_find_text_3">수납・정리</string>
+    <string name="popular_find_text_4">주방용품</string>
+    <string name="popular_find_text_5">조명</string>
+    <string name="popular_find_text_6">데코・식물</string>
+    <string name="popular_find_text_7">가전</string>
+    <string name="popular_find_text_8">생활용품</string>
+    <string name="popular_find_text_9">공구・DIY</string>
+    <string name="popular_find_text_10">반려동물</string>
+    <string name="popular_find_text_11">캠핑용품</string>
+    <string name="popular_find_text_12">유아・아동</string>
+    <string name="popular_find_text_13">생필품</string>
+    <string name="popular_find_text_14">인테리어시공</string>
+    <string name="popular_find_text_15">실내운동</string>
+    <string name="popular_find_text_16">렌탈</string>
 
 
     <!-- Store Fragment -->

@@ -1,25 +1,42 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main
 
+import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityMainBinding
 import com.kjy.risingtest_todayhouse_teamb.src.main.home.HomeFragment
+import com.kjy.risingtest_todayhouse_teamb.src.main.move.MoveFragment
 import com.kjy.risingtest_todayhouse_teamb.src.main.mypage.MypageFragment
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.StoreFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
+
+    // 플로팅 액션 버튼의 상태 지정
+    // 기본값 닫혀있음
+    private var isFabOpen = false
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // 바텀 네비게이션 테마색 변경을 막아줌
         showBottomIcon()
-        // 커스텀 다이얼로그 띄워주기
+        // 메인 액티비티 진입시 맨 처음 나오는 커스텀 다이얼로그 띄워주기
         showMainDialog()
 
+        binding.mainBtnFloating.setOnClickListener {
+            animationFab()
+            val dialog = CustomDialogFloat(this)
+            dialog.showDialogFloating()
+        }
 
-        supportFragmentManager.beginTransaction().replace(R.id.main_layout_frame, HomeFragment()).commitAllowingStateLoss()
+
+        supportFragmentManager.beginTransaction().replace(R.id.main_layout_frame, HomeFragment())
+            .commitAllowingStateLoss()
 
         // 메인 액티비티에 프래그먼트 연결
         binding.mainNavBottom.run {
@@ -38,6 +55,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     R.id.main_nav_store -> {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_layout_frame, StoreFragment())
+                            .commitAllowingStateLoss()
+                    }
+                    R.id.main_nav_move -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_layout_frame, MoveFragment())
                             .commitAllowingStateLoss()
                     }
                 }
@@ -60,4 +82,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         val dialog = CustomDialog(this)
         dialog.showDialog()
     }
+
+    // 플로팅 버튼 애니메이션 구현하기
+    private fun animationFab() {
+        if (isFabOpen) {
+            ObjectAnimator.ofFloat(binding.mainBtnFloating, View.ROTATION, 45f, 0f)
+                .apply { start() }
+        } else {
+            ObjectAnimator.ofFloat(binding.mainBtnFloating, View.ROTATION, 0f, 45f)
+                .apply { start() }
+        }
+
+        isFabOpen = !isFabOpen
+    }
+
 }

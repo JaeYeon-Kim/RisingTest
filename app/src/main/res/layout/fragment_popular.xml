@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fillViewport="true"
     android:background="@color/popular_backgroundColor"
+    android:fillViewport="true"
     tools:context=".src.main.home.popular.PopularFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,6 +37,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:overScrollMode="never"
+                android:scrollbars="none"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/popular_vp" />
@@ -47,7 +51,7 @@
             android:id="@+id/popular_layout_content_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,9 +71,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/popular_iv_content_1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:src="@drawable/popular_content_1_image"
                 app:layout_constraintBottom_toBottomOf="@id/popular_tv_content_1"
                 app:layout_constraintStart_toEndOf="@id/popular_tv_content_1"
@@ -105,7 +110,162 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/popular_layout_content_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popular_layout_content_1">
+
+            <TextView
+                android:id="@+id/popular_tv_content_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/popular_content2_titleText"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/popular_iv_content_2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/popular_content_2_image"
+                app:layout_constraintBottom_toBottomOf="@id/popular_tv_content_2"
+                app:layout_constraintStart_toEndOf="@id/popular_tv_content_2"
+                app:layout_constraintTop_toTopOf="@id/popular_tv_content_2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popular_rv_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popular_tv_content_2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/popular_btn_content_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/popular_btn_custom"
+                android:text="@string/popular_more_btnText"
+                android:textColor="@color/popular_btnTextColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popular_rv_content_2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/popular_layout_content_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popular_layout_content_2">
+
+            <TextView
+                android:id="@+id/popular_tv_content_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/popular_content3_titleText"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/popular_iv_content_3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/popular_content_3_image"
+                app:layout_constraintBottom_toBottomOf="@id/popular_tv_content_3"
+                app:layout_constraintStart_toEndOf="@id/popular_tv_content_3"
+                app:layout_constraintTop_toTopOf="@id/popular_tv_content_3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popular_rv_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popular_tv_content_3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/popular_btn_content_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/popular_btn_custom"
+                android:text="@string/popular_more_btnText"
+                android:textColor="@color/popular_btnTextColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/popular_rv_content_3" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/popular_layout_content_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popular_layout_content_3">
+
+            <TextView
+                android:id="@+id/popular_tv_content_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@string/popular_content4_titleText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popular_rv_content_4"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/popular_tv_content_4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.core.widget.NestedScrollView>

@@ -111,6 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/store_viewPager" />
@@ -154,58 +156,6 @@
                         android:layout_marginTop="2dp"
                         android:layout_width="17dp"
                         android:layout_height="17dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/store_tv_whatGoods"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <ImageView
-                        android:src="@drawable/store_category_kitchen"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-
 
                 </LinearLayout>
 

@@ -8,7 +8,7 @@ import android.view.WindowManager
 import android.widget.Button
 import com.kjy.risingtest_todayhouse_teamb.R
 
-class CustomDialog(context: Context) {
+class CustomDialog(context: Context){
     private val dialog = Dialog(context)
 
 

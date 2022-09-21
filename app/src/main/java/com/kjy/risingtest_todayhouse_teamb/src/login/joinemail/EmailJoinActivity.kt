@@ -1,16 +1,23 @@
 package com.kjy.risingtest_todayhouse_teamb.src.login.joinemail
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.CompoundButton
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityEmailJoinBinding
 import com.kjy.risingtest_todayhouse_teamb.src.login.LoginActivity
 import com.kjy.risingtest_todayhouse_teamb.src.login.joinemail.expert.ExpertWebActivity
+import java.util.regex.Pattern
 
 class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJoinBinding::inflate) {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,6 +28,30 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
         expertWebGo()
 
         binding.emailJoinCheckBoxWhole.setOnClickListener{onCheckBoxChanged(binding.emailJoinCheckBoxWhole)}
+
+        // EditText에 TextWatcher 연결
+        binding.emailJoinEtEmail.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            // 실시간 변경 이벤트
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                checkEmail()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
+
+        // 회원가입 완료 버튼 클릭시 이벤트
+        binding.emailJoinBtnComplete.setOnClickListener {
+            if (!checkEmail()) {
+                showCustomToast("이메일 형식에 맞게 입력하세요")
+            } else {
+                showCustomToast("가입 완료!")
+            }
+        }
 
     }
 
@@ -70,6 +101,21 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
                     binding.emailJoinCheckBox5.isChecked = false
                 }
             }
+        }
+    }
+
+    // 이메일 정규식 검사
+    fun checkEmail(): Boolean {
+        // 이메일 정규식
+        val emailValidation = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
+        var email = binding.emailJoinEtEmail.text.toString().trim()         // 공백 제거
+        val checkPattern = Pattern.matches(emailValidation, email)
+        if (checkPattern) {
+            binding.emailJoinEtEmail.setTextColor(R.color.black.toInt())
+            return true
+        }else {
+            binding.emailJoinEtEmail.setTextColor(R.color.red.toInt())
+            return false
         }
     }
 }
