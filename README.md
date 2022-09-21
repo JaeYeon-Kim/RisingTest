@@ -231,6 +231,8 @@ ViewTreeObserver의 OnScrollChangedListener를 사용하였는데 리스너 사�
 👌 구현 스크린 샷
 
 
+<img src = "https://user-images.githubusercontent.com/95080196/191545813-b106d81e-a134-4466-b388-05f0202c4fb5.jpeg" width="30%" height="30%">
+
 ‼️ 개발 이슈
 
 - 홈 프래그먼트 스크롤시 coordinatorLayout에 의해 AppbarLayout이 접히게 되는데 이때 기존의 collapsingtoolbarlayout을 이용해 구현했을때는 가운데서 열리는듯한 모습으로 열고 닫았다.
