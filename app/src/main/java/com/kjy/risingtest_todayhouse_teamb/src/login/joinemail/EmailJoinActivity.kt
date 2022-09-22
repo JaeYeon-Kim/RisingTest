@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.CompoundButton
+import androidx.core.content.ContextCompat
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityEmailJoinBinding
@@ -16,7 +17,7 @@ import java.util.regex.Pattern
 
 class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJoinBinding::inflate) {
 
-
+    val emailValidation = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +45,14 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
 
         })
 
-        // 회원가입 완료 버튼 클릭시 이벤트
         binding.emailJoinBtnComplete.setOnClickListener {
-            if (!checkEmail()) {
+            if(!checkEmail()) {
                 showCustomToast("이메일 형식에 맞게 입력하세요")
-            } else {
-                showCustomToast("가입 완료!")
-            }
+            }else {
+                showCustomToast("가입 완료")
+         }
         }
+
 
     }
 
@@ -104,18 +105,19 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
         }
     }
 
-    // 이메일 정규식 검사
-    fun checkEmail(): Boolean {
-        // 이메일 정규식
-        val emailValidation = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
-        var email = binding.emailJoinEtEmail.text.toString().trim()         // 공백 제거
-        val checkPattern = Pattern.matches(emailValidation, email)
+    // 이메일 형식 검사
+    private fun checkEmail(): Boolean {
+        var email = binding.emailJoinEtEmail.text.toString().trim()     // 공백제거
+        val checkPattern = Pattern.matches(emailValidation, email)      // 서로 패턴이 맞는지 확인
         if (checkPattern) {
-            binding.emailJoinEtEmail.setTextColor(R.color.black.toInt())
+            // 이메일 형태가 정상일 경우
+            binding.emailJoinEtEmail.setTextColor(ContextCompat.getColor(this, R.color.black))
             return true
         }else {
-            binding.emailJoinEtEmail.setTextColor(R.color.red.toInt())
+            // 이메일 형태가 올바르지 않을 경우
+            binding.emailJoinEtEmail.setTextColor(ContextCompat.getColor(this, R.color.red))
             return false
         }
     }
+
 }

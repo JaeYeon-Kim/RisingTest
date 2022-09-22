@@ -38,7 +38,9 @@
         <entry key="app/src/main/res/layout/store_category_goods_list.xml" value="0.19444444444444445" />
         <entry key="app/src/main/res/layout/store_category_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/store_pager_list.xml" value="0.22083333333333333" />
-        <entry key="app/src/main/res/layout/store_recent_item_list.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/store_popular_item_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/store_recent_item_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/store_relative_item_list.xml" value="0.3171875" />
         <entry key="app/src/main/res/menu/home_toolbar_menu.xml" value="0.3296875" />
         <entry key="app/src/main/res/menu/main_bottom_nav.xml" value="0.3104166666666667" />
       </map>

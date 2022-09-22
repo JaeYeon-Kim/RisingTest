@@ -24,6 +24,13 @@
     <color name="store_line_backgroundColor">#FAFAFB</color>
     <color name="store_indicator_color_off">#F9F9F7</color>
     <color name="store_indicator_color_on">#FFFFFF</color>
+    <color name="store_recent_item_brandTextColor">#989898</color>
+    <color name="store_recent_item_reviewTextColor">#A7A7A7</color>
+    <color name="store_relative_item_brandTextColor">#989898</color>
+    <color name="store_relative_item_reviewTextColor">#A7A7A7</color>
+    <color name="store_popular_item_brandTextColor">#989898</color>
+    <color name="store_popular_item_reviewTextColor">#A7A7A7</color>
+
 
 
 

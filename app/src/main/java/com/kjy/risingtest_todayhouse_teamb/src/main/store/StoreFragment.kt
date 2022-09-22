@@ -16,6 +16,12 @@ import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.GoodsCategoryDat
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreCategoryAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerData
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.popular.StorePopularAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.popular.StorePopularData
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.recent.StoreRecentAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.recent.StoreRecentData
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRelativeAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRelativeData
 
 
 class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store){
@@ -28,6 +34,15 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
     // 광고 뷰페이저 리스트
     private var storePagerList = mutableListOf<StorePagerData>()
+
+    // 스토어 프래그먼트의 최근 본 상품 리스트
+    private var storeRecentList = mutableListOf<StoreRecentData>()
+
+    // 스토어 프래그먼트의 내가 본 상품의 연관상품 리스트
+    private var storeRelativeList = mutableListOf<StoreRelativeData>()
+
+    // 스토어 프래그먼트의 인기상품 리스트
+    private var storePopularList = mutableListOf<StorePopularData>()
 
     private lateinit var listener: ViewTreeObserver.OnScrollChangedListener
 
@@ -48,10 +63,19 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         categoryRecycler()
 
         // 스토어 프래그먼트의 가로형 카테고리 리사이클러뷰
-        categoryGoodsRv()
+        categoryGoodsRecycler()
 
         // 스토어 프래그먼트 광고 뷰페이저
         storeAdViewpager()
+
+        // 스토어 프래그먼트 최근 본 상품 연동
+        storeRecentRecycler()
+
+        // 스토어 프래그먼트 내가 본 상품의 연관상품 연동
+        storeRelativeRecycler()
+
+        // 스토어 프래그먼트 인기 상품 연동
+        storePopularRecycler()
     }
 
     override fun onStop() {
@@ -81,7 +105,7 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
     }
 
-    private fun categoryGoodsRv() {
+    private fun categoryGoodsRecycler() {
         var adapter = GoodsCategoryAdapter()
         binding.storeRvCategoryGoods.adapter = adapter
         goodsList.apply {
@@ -121,6 +145,100 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         }
         adapter.storePagerList = storePagerList
         binding.storeViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+
+    private fun storeRecentRecycler() {
+        val adapter = StoreRecentAdapter()
+        binding.storeRvRecent.adapter = adapter
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_1, "스타일링홈", "test침대", "60%",
+                    30000, "4.8", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_2, "스타일링홈", "test침대", "60%",
+                30000, "4.9", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_3, "스타일링홈", "test침대", "60%",
+                50000, "4.6", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_4, "스타일링홈", "test침대", "60%",
+                130000, "4.3", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_5, "스타일링홈", "test침대", "60%",
+                130000, "4.2", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_6, "스타일링홈", "test침대", "60%",
+                290000, "4.1", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_7, "스타일링홈", "test침대", "60%",
+                150000, "4.8", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_8, "스타일링홈", "test침대", "60%",
+                230000, "4.9", 15000))
+        }
+        storeRecentList.apply {
+            add(StoreRecentData(R.drawable.store_testimage_9, "스타일링홈", "test침대", "60%",
+                130000, "5.0", 15000))
+        }
+        adapter.storeRecentList = storeRecentList
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.storeRvRecent.layoutManager = layoutManager
+    }
+
+    private fun storeRelativeRecycler() {
+        val adapter = StoreRelativeAdapter()
+        binding.storeRvRelative.adapter = adapter
+        storeRelativeList.apply {
+            add(StoreRelativeData(R.drawable.store_testimage_1, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500 ))
+            add(StoreRelativeData(R.drawable.store_testimage_2, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500 ))
+            add(StoreRelativeData(R.drawable.store_testimage_3, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500 ))
+            add(StoreRelativeData(R.drawable.store_testimage_4, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500 ))
+        }
+        adapter.storeRelativeList = storeRelativeList
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.storeRvRelative.layoutManager = layoutManager
+    }
+
+    private fun storePopularRecycler() {
+        val adapter = StorePopularAdapter()
+        binding.storeRvPopular.adapter = adapter
+        storePopularList.apply {
+            add(StorePopularData(R.drawable.store_testimage_1, "오트밀하우스",
+                    "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                    , "4.8", 1500))
+            add(StorePopularData(R.drawable.store_testimage_2, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500))
+            add(StorePopularData(R.drawable.store_testimage_3, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500))
+            add(StorePopularData(R.drawable.store_testimage_4, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500))
+            add(StorePopularData(R.drawable.store_testimage_5, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500))
+            add(StorePopularData(R.drawable.store_testimage_6, "오트밀하우스",
+                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
+                , "4.8", 1500))
+        }
+        adapter.storePopularList = storePopularList
+        val layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.storeRvPopular.layoutManager = layoutManager
     }
 
 }

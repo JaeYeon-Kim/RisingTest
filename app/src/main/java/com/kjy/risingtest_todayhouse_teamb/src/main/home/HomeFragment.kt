@@ -30,7 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.homeVp.adapter = adapter
 
         // 탭 레이아웃 리스트 생성
-        val tabTitles = listOf("인기", "사진", "집들이")
+        val tabTitles = listOf("인기", "팔로잉", "사진", "집들이", "노하우", "전문가집들이", "질문과답변")
 
         TabLayoutMediator(binding.homeTabLayout, binding.homeVp)  { tab, position ->
             tab.text = tabTitles[position]
