@@ -70,6 +70,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/loginemail_btn_custom"
         android:text="@string/emailLogin_btn_login_text"
+        android:enabled="false"
         android:textColor="@color/email_login_btn_textColor"
         android:textSize="16sp"
         android:textStyle="bold"

@@ -7,7 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 // 바디에 값을 담아 요청을 받는 인터페이스
-
 interface LoginRetrofitInterface {
     @POST("/app/users/login")
     fun postLogin(@Body params: PostLoginRequest): Call<LoginResponse>

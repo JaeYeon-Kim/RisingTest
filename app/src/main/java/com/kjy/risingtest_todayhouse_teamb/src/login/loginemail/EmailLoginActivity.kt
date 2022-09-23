@@ -11,9 +11,12 @@ import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityEmailLoginBinding
 import com.kjy.risingtest_todayhouse_teamb.src.login.LoginActivity
+import com.kjy.risingtest_todayhouse_teamb.src.login.loginemail.model.LoginResponse
+import com.kjy.risingtest_todayhouse_teamb.src.login.loginemail.model.PostLoginRequest
+import com.kjy.risingtest_todayhouse_teamb.src.main.MainActivity
 import java.util.regex.Pattern
 
-class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmailLoginBinding::inflate) {
+class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmailLoginBinding::inflate), EmailLoginInterface {
 
 
 
@@ -23,18 +26,35 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
         // 이메일로 로그인 액티비티에서 버튼 클릭시 뒤로 감
         backEmailLogin()
 
-        // 버튼 비활성화
-        binding.emailLoginBtnComplete.isEnabled = false
 
         // 이메일 editText를 감지하는 리스너
         binding.emailLoginEtEmail.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 val loginEmail = binding.emailLoginEtEmail.text.toString()
                 val loginPassword = binding.emailLoginEtPassword.text.toString()
-                binding.emailLoginBtnComplete.isEnabled = loginEmail.trim().isNotEmpty() && loginPassword.trim().isNotEmpty()
+
+                binding.emailLoginBtnComplete.isEnabled = loginEmail.isNotEmpty() && loginPassword.isNotEmpty()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+
+        // 비밀번호 editText에 대한 editText 감지
+        binding.emailLoginEtPassword.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val loginPassword = binding.emailLoginEtPassword.text.toString()
+                val loginEmail = binding.emailLoginEtEmail.text.toString()
+                binding.emailLoginBtnComplete.isEnabled = loginPassword.isNotEmpty() && loginEmail.isNotEmpty()
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -42,8 +62,15 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
 
         })
 
+
         binding.emailLoginBtnComplete.setOnClickListener {
-            showCustomToast("로그인이 되었습니다!!")
+            val email = binding.emailLoginEtEmail.text.toString()
+            val password = binding.emailLoginEtPassword.text.toString()
+            val postLoginRequest = PostLoginRequest(email = email, password = password)
+            LoginService(this).tryPostLogin(postLoginRequest)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -61,5 +88,13 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
             startActivity(intent)
             finish()
         }
+    }
+
+    override fun onPostLoginSuccess(response: LoginResponse) {
+        response.message?.let { showCustomToast(it)}
+    }
+
+    override fun onPostLoginFailure(message: String) {
+        showCustomToast("오류 : $message")
     }
 }
