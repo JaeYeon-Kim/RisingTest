@@ -1,15 +1,13 @@
-package com.kjy.risingtest_todayhouse_teamb.src.main.home.following
+package com.kjy.risingtest_todayhouse_teamb.src.main.home.expert
 
 import android.os.Bundle
 import android.view.View
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
-import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentFollowingBinding
+import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentExpertBinding
 
-
-class FollowingFragment : BaseFragment<FragmentFollowingBinding>(FragmentFollowingBinding::bind, R.layout.fragment_following) {
+class ExpertFragment : BaseFragment<FragmentExpertBinding>(FragmentExpertBinding::bind, R.layout.fragment_expert) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
-
 }

@@ -26,6 +26,8 @@ import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRe
 
 class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store){
 
+
+
     // 스토어 프래그먼트 메인 카테고리 리스트
     private var categoryList = mutableListOf<CategoryData>()
 
@@ -76,6 +78,8 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
         // 스토어 프래그먼트 인기 상품 연동
         storePopularRecycler()
+
+
     }
 
     override fun onStop() {

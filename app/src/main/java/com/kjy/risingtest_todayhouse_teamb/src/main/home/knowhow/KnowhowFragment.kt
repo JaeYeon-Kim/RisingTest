@@ -1,15 +1,14 @@
-package com.kjy.risingtest_todayhouse_teamb.src.main.home.following
+package com.kjy.risingtest_todayhouse_teamb.src.main.home.knowhow
 
 import android.os.Bundle
 import android.view.View
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
-import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentFollowingBinding
+import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentKnowhowBinding
 
 
-class FollowingFragment : BaseFragment<FragmentFollowingBinding>(FragmentFollowingBinding::bind, R.layout.fragment_following) {
+class KnowhowFragment : BaseFragment<FragmentKnowhowBinding>(FragmentKnowhowBinding::bind, R.layout.fragment_knowhow) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
-
 }

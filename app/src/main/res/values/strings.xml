@@ -1,5 +1,13 @@
 <resources>
 
+    <!-- BuyActivity -->
+    <string name="buy_main_toolbar_titleText">맥시 6COLOR 극세사 밍크담요(소형/대형/특대형)</string>
+    <string name="buy_sub_toolbar_large_categoryText">패브릭</string>
+    <string name="buy_sub_toolbar_medium_categoryText">홈 패브릭</string>
+    <string name="buy_sub_toolbar_small_categoryText">담요・블랭킷</string>
+    <string name="buy_bottom_scrapText">1000</string>
+    <string name="buy_bottom_btnText">구매하기</string>
+
 
     <!-- Main Activity -->
     <string name="main_floating_noticeText"><u>집들이,노하우 업로드 안내</u></string>

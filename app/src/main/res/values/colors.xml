@@ -48,8 +48,8 @@
     <color name="kakao_login_nonMembers_textColor">#959A9D</color>
 
     <!-- EmailLoginActivity -->
-    <color name="email_login_btn_background">#A3E4F9</color>
-    <color name="email_login_btn_textColor">#BFFFFFFF</color>
+    <color name="email_login_btn_background">#35C5F0</color>
+    <color name="email_login_btn_textColor">#FFFFFF</color>
     <color name="email_login_passwordReset_textColor">#757575</color>
     <color name="email_login_et_strokeColor">#DCDCDC</color>
     <color name="email_login_et_textColor">#DCDCDC</color>

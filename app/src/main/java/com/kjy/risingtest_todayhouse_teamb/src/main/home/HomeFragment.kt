@@ -8,10 +8,14 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
 import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentHomeBinding
+import com.kjy.risingtest_todayhouse_teamb.src.main.home.expert.ExpertFragment
+import com.kjy.risingtest_todayhouse_teamb.src.main.home.following.FollowingFragment
 import com.kjy.risingtest_todayhouse_teamb.src.main.home.homeparty.HomepartyFragment
+import com.kjy.risingtest_todayhouse_teamb.src.main.home.knowhow.KnowhowFragment
 import com.kjy.risingtest_todayhouse_teamb.src.main.home.photo.FragmentAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.home.photo.PhotoFragment
 import com.kjy.risingtest_todayhouse_teamb.src.main.home.popular.PopularFragment
+import com.kjy.risingtest_todayhouse_teamb.src.main.home.qna.QnAFragment
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) {
@@ -22,7 +26,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
 
         // 프래그먼트 목록 생성
-        val fragmentList = listOf(PopularFragment(), PhotoFragment(), HomepartyFragment())
+        val fragmentList = listOf(PopularFragment(), FollowingFragment(), PhotoFragment(),
+            HomepartyFragment(), KnowhowFragment(), ExpertFragment(), QnAFragment())
         // 어댑터 생성후 프래그먼트 목록 저장
         val adapter = FragmentAdapter(requireActivity())
         adapter.fragmentList = fragmentList

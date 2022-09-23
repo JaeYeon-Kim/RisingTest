@@ -15,8 +15,6 @@ import java.util.regex.Pattern
 
 class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmailLoginBinding::inflate) {
 
-    // 이메일 정규식
-    private val emailValidation = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +23,28 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
         // 이메일로 로그인 액티비티에서 버튼 클릭시 뒤로 감
         backEmailLogin()
 
+        // 버튼 비활성화
+        binding.emailLoginBtnComplete.isEnabled = false
+
+        // 이메일 editText를 감지하는 리스너
+        binding.emailLoginEtEmail.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                val loginEmail = binding.emailLoginEtEmail.text.toString()
+                val loginPassword = binding.emailLoginEtPassword.text.toString()
+                binding.emailLoginBtnComplete.isEnabled = loginEmail.trim().isNotEmpty() && loginPassword.trim().isNotEmpty()
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+        })
+
+        binding.emailLoginBtnComplete.setOnClickListener {
+            showCustomToast("로그인이 되었습니다!!")
+        }
     }
 
     // 스마트폰 뒤로가기 활성화
@@ -42,7 +62,4 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
             finish()
         }
     }
-
-
-
 }

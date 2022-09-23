@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/emailLogin_et_email" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/emailLogin_btn_login"
+        android:id="@+id/emailLogin_btn_complete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -85,6 +85,6 @@
         android:textColor="@color/email_login_passwordReset_textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailLogin_btn_login" />
+        app:layout_constraintTop_toBottomOf="@id/emailLogin_btn_complete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
