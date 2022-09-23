@@ -283,3 +283,72 @@ ViewTreeObserver의 OnScrollChangedListener를 사용하였는데 리스너 사�
 ✅ NestedScrollView 내부에 리사이클러뷰들이 들어가면 리사이클러뷰 스크롤이 안되는 현상도 해결되고, 나의 문제를 해결하기 위해서는 각 리사이클러뷰에 android:nestedScrollingEnabled=”false” 속성을 넣어주면 해결된다.
 
 다만, 이 속성을 넣을 경우 리사이클러뷰의 메모리절약 장점이 사라지는 단점이 발생한다.. 😔
+
+
+### 👌 7일차 진행상황
+
+### 👌 구현 진행상황
+
+<aside>
+💡 스토어 프래그먼트에서 리사이클러뷰 아이템 클릭시 상품 구매 액티비티로 이동하도록 구현
+
+</aside>
+
+<aside>
+💡 상품 구매 액티비티 UI 구현 및 연구중
+
+</aside>
+
+<aside>
+💡 회원가입 API 연동 완료 후 프론트단에서 예외처리 로직 수정 중
+
+</aside>
+
+<aside>
+💡 로그인 버튼이 EditText의 값 여부에 따라 활성/비활성으로 나뉘게 구현
+
+</aside>
+
+<aside>
+💡 로그인 API 연동중
+
+</aside>
+
+### ‼️ 개발 이슈
+
+<aside>
+💡 회원가입 API 연동을 완료 하였는데 빌드 해보니 retrofit 객체가 초기화되지 않았다는 오류가 발생
+
+</aside>
+
+- 원인을 파악해보니 기존의 템플릿 양식을 가져오지 않고 필요할때마다 템플릿 양식을 보면서 코드를 지켜서 작성하다보니 코드를 빼먹었는데 AndroidManifest.xml에서 config 패키지에 만들어놓은 ApplicationClass를 지정하지않아서 발생하는 오류였다.
+    
+    
+
+✅ manifest에 ApplicationClass를 지정해주니 오류가 해결되었다.
+
+<aside>
+💡 위의 오류를 해결하고 빌드해보니 또 다른 오류가 발생하였다.
+
+</aside>
+
+- Logcat을 보니 java.lang.nullpointerException이 발생하였는데, 차근차근 보니 요청을 하는 서비스 클래스에서 응답을 성공적으로 받아왔을 때 null값이 발생하였을경우와 값이 제대로 들어왔을 경우를 예외처리 해주지 않아 발생하는 오류였다.
+
+✅ 처음에 원인을 파악하기 어려워서 시간이 조금 오래 걸렸지만, 조건식으로 response.body()에 null 값 기준으로 예외 처리를 해주니 오류가 해결되었다.
+
+### 👋 팀 변동 사항
+
+<aside>
+💡 baseUrl이 변경되어 코드를 수정하였다.
+
+</aside>
+
+<aside>
+💡 기획서에서 스토어 메인화면 → 스토어 홈 으로 수정하였다.
+
+</aside>
+
+<aside>
+💡 반환값 result 부분에서 user_IDX 변수가 userIdx 로 수정되었다.
+
+</aside>
