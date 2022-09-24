@@ -22,14 +22,76 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/popular_vp"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:overScrollMode="never"
+            <com.kjy.risingtest_todayhouse_teamb.NestedScrollableHost
+                android:id="@+id/popular_layout_vp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/popular_vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:nestedScrollingEnabled="true" />
+
+
+
+            </com.kjy.risingtest_todayhouse_teamb.NestedScrollableHost>
+
+            <LinearLayout
+                app:layout_constraintBottom_toBottomOf="@id/popular_layout_vp"
+                app:layout_constraintEnd_toEndOf="@id/popular_layout_vp"
+                android:background="@drawable/popular_indicator_custom"
+                android:id="@+id/popular_indicator_vp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="8dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/popular_tv_currentBanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="10dp"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:text="/"
+                    android:textSize="10dp"
+                    android:textColor="@color/popular_indicator_textColor" />
+
+                <TextView
+                    android:id="@+id/popular_tv_totalBanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15"
+                    android:textSize="10dp"
+                    android:textColor="@color/popular_indicator_textColor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="+"
+                    android:textSize="10dp"
+                    android:textColor="#FFFFFF" />
+
+
+
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/popular_rv_categoryMain"
@@ -43,7 +105,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/popular_vp" />
+                app:layout_constraintTop_toBottomOf="@id/popular_layout_vp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

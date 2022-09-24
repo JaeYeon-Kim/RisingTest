@@ -6,6 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+
+    <!-- Popular Fragment -->
+    <color name="popular_indicator_textColor">#939293</color>
+
     <!-- Home Fragment -->
     <color name ="home_tabLayout_textColor_off">#3C3C3C</color>
     <color name ="home_tabLayout_textColor_on">#35C5F0</color>
