@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/buy_brand_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/buy_btn_custom.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/buy_delivery_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/dialog_bg_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/email_join_btn_custom.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/email_join_btn_custom_2.xml" value="0.1415" />
@@ -21,7 +23,7 @@
         <entry key="app/src/main/res/drawable/popular_indicator_custom.xml" value="0.1925" />
         <entry key="app/src/main/res/drawable/store_btn_categorymore_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/store_btn_search_custom.xml" value="0.1035" />
-        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.24379625598606877" />
+        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_email_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_email_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_expert_web.xml" value="0.22760416666666666" />
@@ -29,6 +31,9 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/buy_inform_list.xml" value="0.3125" />
+        <entry key="app/src/main/res/layout/buy_pager_list.xml" value="0.3125" />
+        <entry key="app/src/main/res/layout/buy_user_list.xml" value="0.3125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_homeparty.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/fragment_move.xml" value="0.25" />

@@ -17,6 +17,7 @@ class CustomDialog(context: Context){
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                                   WindowManager.LayoutParams.MATCH_PARENT)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.attributes.windowAnimations = R.style.AdAnimationPopupStyle       // 다이얼로그 애니메이션
         dialog.setCanceledOnTouchOutside(false)
         dialog.setCancelable(true)
 

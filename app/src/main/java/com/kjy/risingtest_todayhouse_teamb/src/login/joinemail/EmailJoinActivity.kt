@@ -25,6 +25,8 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        checkBoxButton()
+
         // 버튼 비활성화
         binding.emailJoinBtnComplete.isClickable = false
 
@@ -35,6 +37,10 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
         expertWebGo()
 
         binding.emailJoinCheckBoxWhole.setOnClickListener{onCheckBoxChanged(binding.emailJoinCheckBoxWhole)}
+        binding.emailJoinCheckBox1.setOnClickListener{onCheckBoxChanged(binding.emailJoinCheckBox1)}
+        binding.emailJoinCheckBox2.setOnClickListener{onCheckBoxChanged(binding.emailJoinCheckBox2)}
+        binding.emailJoinCheckBox3.setOnClickListener{onCheckBoxChanged(binding.emailJoinCheckBox3)}
+
 
         // EditText에 TextWatcher 연결
         binding.emailJoinEtEmail.addTextChangedListener(object: TextWatcher{
@@ -68,9 +74,6 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
             val nickname = binding.emailJoinEtNickname.text.toString()
             val postRequest = PostJoinRequest(email = email, password = password, nickname = nickname)
             JoinService(this).tryPostJoin(postRequest)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
 
         }
     }
@@ -121,17 +124,17 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
                     binding.emailJoinCheckBox5.isChecked = false
                 }
             }
-            R.id.emailJoin_checkBox_1 -> {
-                if(binding.emailJoinCheckBox1.isChecked) {
-                    if (binding.emailJoinCheckBox2.isChecked) {
-                        if(binding.emailJoinCheckBox3.isChecked) {
-                            binding.emailJoinBtnComplete.isClickable = true
-                        }
-                    }
-                }
-            }
         }
 
+    }
+
+    private fun checkBoxButton() {
+        val firstCheck = binding.emailJoinCheckBox1.isChecked
+        val secondCheck = binding.emailJoinCheckBox2.isChecked
+        val thirdCheck = binding.emailJoinCheckBox3.isChecked
+        if(firstCheck && secondCheck && thirdCheck) {
+            showCustomToast("모두 클릭되었어용")
+        }
     }
 
     // 이메일 형식 검사
@@ -151,10 +154,15 @@ class EmailJoinActivity : BaseActivity<ActivityEmailJoinBinding>(ActivityEmailJo
 
     // 가입 성공의 경우
     override fun onPostJoinSuccess(response: UserJoinResponse?) {
-        response?.message.let {
-            if (it != null) {
-                showCustomToast(it)
-            }
+//        response?.message.let {
+//            if (it != null) {
+//                showCustomToast(it)
+//            }
+//        }
+        if(response?.isSuccess == true) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

@@ -68,9 +68,6 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
             val password = binding.emailLoginEtPassword.text.toString()
             val postLoginRequest = PostLoginRequest(email = email, password = password)
             LoginService(this).tryPostLogin(postLoginRequest)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
         }
     }
 
@@ -90,8 +87,15 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
         }
     }
 
-    override fun onPostLoginSuccess(response: LoginResponse) {
-        response.message?.let { showCustomToast(it)}
+    override fun onPostLoginSuccess(response: LoginResponse?) {
+//        response.message?.let { showCustomToast(it)}
+        if(response?.isSuccess == true) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+            showCustomToast("아이디 또는 비밀번호가 잘못되었습니다.")
+        }
     }
 
     override fun onPostLoginFailure(message: String) {

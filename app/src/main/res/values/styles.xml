@@ -6,5 +6,18 @@
         <item name ="android:textStyle">bold</item>
     </style>
 
+    <!-- 메인 진입시 나오는 광고 다이얼로그 애니메이션 스타일-->
+    <style name="AdAnimationPopupStyle">
+        <item name="android:windowEnterAnimation">@anim/main_dialog_open</item>
+        <item name="android:windowExitAnimation">@anim/main_dialog_close</item>
+    </style>
+
+    <!-- 바텀바 플로팅 버튼 클릭시 나오는 다이얼로그 애니메이션 -->
+    <style name="FloatAnimationPopupStyle">
+        <item name="android:windowEnterAnimation">@anim/float_dialog_open</item>
+        <item name="android:windowExitAnimation">@anim/float_dialog_close</item>
+
+    </style>
+
 
 </resources>

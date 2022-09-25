@@ -6,6 +6,15 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+    <!-- Buy Activity -->
+    <color name="buy_main_backgroundColor">#F8F8FA</color>
+    <color name="buy_boundaryLineColor">#F0F0F1</color>
+    <color name="buy_storeTitleColor">#B4BABF</color>
+    <color name="buy_deliveryBtn_backgroundColor">#F8F8FA</color>
+    <color name="buy_brandBtn_storeNameColor">#5F696F</color>
+    <color name="buy_brandBtn_brandDefaultTextColor">#8B949A</color>
+    <color name="buy_brandBtn_brandDefaultBackgroundColor">#F6F5F5</color>
+
 
     <!-- Popular Fragment -->
     <color name="popular_indicator_textColor">#939293</color>

@@ -25,7 +25,7 @@ class PopularFragment : BaseFragment<FragmentPopularBinding>(FragmentPopularBind
     // 인기 탭의 메인 카테고리의 데이터 클래스를 담는 리스트
     var categoryMainList = mutableListOf<PopularMainData>()
 
-    // 인기 탭의 뷰페이저 데이터 클래스를 담는 리슽
+    // 인기 탭의 뷰페이저 데이터 클래스를 담는 리스트
     var popularPagerList = mutableListOf<PopularPagerData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
