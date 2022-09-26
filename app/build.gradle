@@ -63,8 +63,8 @@ dependencies {
     // 뷰페이저 인디케이터 라이브러리
     implementation("com.tbuonomo:dotsindicator:4.3")
 
-    // StickyScorllView 라이브러리(헤더 고정)
-    implementation 'com.github.amarjain07:StickyScrollView:1.0.3'
+    // nested-StickyScrollView 라이브러리(헤더 고정)
+    implementation 'com.github.didikk:sticky-nestedscrollview:1.0.1'
 
 
 }

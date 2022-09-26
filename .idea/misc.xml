@@ -25,9 +25,10 @@
         <entry key="app/src/main/res/drawable/nav_store_complete.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/popular_btn_custom.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable/popular_indicator_custom.xml" value="0.1925" />
+        <entry key="app/src/main/res/drawable/review_btn_custom.xml" value="0.133" />
         <entry key="app/src/main/res/drawable/store_btn_categorymore_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/store_btn_search_custom.xml" value="0.1035" />
-        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.3072033898305085" />
         <entry key="app/src/main/res/layout/activity_email_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_email_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_expert_web.xml" value="0.22760416666666666" />
@@ -50,6 +51,7 @@
         <entry key="app/src/main/res/layout/main_floating_dialog.xml" value="0.3296875" />
         <entry key="app/src/main/res/layout/popular_category_main_list.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/layout/popular_pager_list.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/layout/review_photo_list.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/layout/store_category_goods_list.xml" value="0.19444444444444445" />
         <entry key="app/src/main/res/layout/store_category_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/store_pager_list.xml" value="0.22083333333333333" />

@@ -17,6 +17,7 @@
     <color name="buy_scrollbar_trackColor">#ECEDEF</color>
     <color name="buy_scrollbar_thumbColor">#818C93</color>
     <color name="buy_photo_showBenefitTextColor">#CECECE</color>
+    <color name="buy_review_statisticsBoxColor">#F5F7F9</color>
 
 
     <!-- Popular Fragment -->

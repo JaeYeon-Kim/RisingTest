@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,8 +20,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:fitsSystemWindows="true">
+            android:backgroundTint="@color/white">
 
             <LinearLayout
                 android:id="@+id/buy_toolbar_main"
@@ -75,55 +75,10 @@
                     android:src="@drawable/buy_toolbar_cart" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/buy_toolbar_sub"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_scrollFlags="scroll">
-
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buy_btn_category_large"
-                    android:layout_width="70dp"
-                    android:layout_height="30dp"
-                    android:background="@color/transparent_backgroundColor"
-                    android:text="@string/buy_sub_toolbar_large_categoryText"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/buy_category_arrow" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buy_btn_category_medium"
-                    android:layout_width="70dp"
-                    android:layout_height="30dp"
-                    android:background="@color/transparent_backgroundColor"
-                    android:text="@string/buy_sub_toolbar_medium_categoryText"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/buy_category_arrow" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buy_btn_category_small"
-                    android:layout_width="70dp"
-                    android:layout_height="30dp"
-                    android:background="@color/transparent_backgroundColor"
-                    android:text="@string/buy_sub_toolbar_small_categoryText"
-                    android:textSize="12sp" />
-            </LinearLayout>
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:contentScrim="@color/transparent_backgroundColor"
                 app:layout_scrollFlags="scroll">
 
                 <androidx.viewpager2.widget.ViewPager2
@@ -132,15 +87,63 @@
                     android:layout_height="250dp"
                     app:layout_collapseMode="parallax" />
 
+                <LinearLayout
+                    android:id="@+id/buy_toolbar_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    app:layout_collapseMode="parallax"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buy_btn_category_large"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@color/transparent_backgroundColor"
+                        android:text="@string/buy_sub_toolbar_large_categoryText"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/buy_category_arrow" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buy_btn_category_medium"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@color/transparent_backgroundColor"
+                        android:text="@string/buy_sub_toolbar_medium_categoryText"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/buy_category_arrow" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buy_btn_category_small"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:background="@color/transparent_backgroundColor"
+                        android:text="@string/buy_sub_toolbar_small_categoryText"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <me.didik.component.StickyNestedScrollView
+            android:id="@+id/buy_sv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/buy_main_backgroundColor"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -575,6 +578,7 @@
                         android:layout_marginTop="20dp"
                         android:scrollbarFadeDuration="0"
                         android:scrollbars="horizontal"
+                        android:nestedScrollingEnabled="false"
                         android:theme="@style/BuyCustomScrollStyle"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -704,73 +708,284 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/buy_layout_review"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/buy_layout_photoUpload">
 
-                    <com.amar.library.ui.StickyScrollView
-                        android:id="@+id/buy_stickyView_detail"
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/buy_tabLayout_detail"
+                        style="@style/tabTextSizeBold"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:tag="sticky"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:stickyHeader="@+id/buy_tabLayout_detail">
+                        app:tabIndicatorColor="@color/todayHouse_mainColor"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/todayHouse_mainColor"
+                        app:tabTextColor="@color/black">
 
-                        <com.google.android.material.tabs.TabLayout
-                            android:id="@+id/buy_tabLayout_detail"
-                            style="@style/tabTextSizeBold"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:tabIndicatorColor="@color/todayHouse_mainColor"
-                            app:tabMode="fixed"
-                            app:tabSelectedTextColor="@color/todayHouse_mainColor"
-                            app:tabTextColor="@color/black">
+                            android:text="@string/buy_detail_tabItemText_1" />
 
-                            <com.google.android.material.tabs.TabItem
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/buy_detail_tabItemText_1" />
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy_detail_tabItemText_2" />
 
-                            <com.google.android.material.tabs.TabItem
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/buy_detail_tabItemText_2" />
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy_detail_tabItemText_3" />
 
-                            <com.google.android.material.tabs.TabItem
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/buy_detail_tabItemText_3" />
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy_detail_tabItemText_4" />
 
-                            <com.google.android.material.tabs.TabItem
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/buy_detail_tabItemText_4" />
+                        <com.google.android.material.tabs.TabItem
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy_detail_tabItemText_5" />
 
-                            <com.google.android.material.tabs.TabItem
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/buy_detail_tabItemText_5" />
-
-                        </com.google.android.material.tabs.TabLayout>
-                    </com.amar.library.ui.StickyScrollView>
+                    </com.google.android.material.tabs.TabLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/buy_rv_goodsInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:scrollbars="none"
                         android:overScrollMode="never"
+                        android:scrollbars="none"
+                        android:nestedScrollingEnabled="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/buy_stickyView_detail" />
+                        app:layout_constraintTop_toBottomOf="@id/buy_tabLayout_detail" />
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buy_layout_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/buy_layout_question"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buy_layout_detail">
+
+                    <TextView
+                        android:id="@+id/buy_tv_defaultReview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/buy_review_defaultText"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/buy_tv_totalReview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/buy_review_countText"
+                        android:textColor="@color/todayHouse_mainColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/buy_tv_defaultReview"
+                        app:layout_constraintStart_toEndOf="@id/buy_tv_defaultReview"
+                        app:layout_constraintTop_toTopOf="@id/buy_tv_defaultReview" />
+
+                    <ImageView
+                        android:id="@+id/buy_iv_reviewWhole"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/buy_user_arrow_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/buy_tv_defaultReview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/buy_tv_defaultReview" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/buy_box_reviewStatistics"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/buy_review_statisticsBoxColor"
+                        app:layout_constraintBottom_toTopOf="@id/buy_rv_reviewPhoto"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/buy_tv_defaultReview">
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/buy_rv_reviewPhoto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:nestedScrollingEnabled="false"
+                        app:layout_constraintBottom_toTopOf="@id/buy_review_boundaryLine"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/buy_box_reviewStatistics" />
+
+                    <LinearLayout
+                        android:id="@+id/buy_review_boundaryLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/buy_review_statisticsBoxColor"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@id/buy_rv_reviewComment"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/buy_rv_reviewPhoto" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/buy_rv_reviewComment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintBottom_toTopOf="@id/buy_btn_reviewWhole"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/buy_review_boundaryLine" />
+
+                    <LinearLayout
+                        android:id="@+id/buy_btn_reviewWhole"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/review_btn_custom"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingVertical="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/buy_rv_reviewComment">
+
+                        <TextView
+                            android:id="@+id/buy_tv_btn_reviewDefault"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buy_review_btnDefaultText"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/buy_tv_btn_reviewCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/buy_review_btnCountText"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buy_layout_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="20dp"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/buy_layout_return"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buy_layout_review">
+
+                    <TextView
+                        android:id="@+id/buy_tv_questionDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/buy_review_btnQuestionDefaultText"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/buy_tv_questionCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/buy_review_btnQuestionCountText"
+                        android:textColor="@color/todayHouse_mainColor"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/buy_tv_questionDefault"
+                        app:layout_constraintStart_toEndOf="@id/buy_tv_questionDefault"
+                        app:layout_constraintTop_toTopOf="@id/buy_tv_questionDefault" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/buy_user_arrow_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/buy_tv_questionDefault"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/buy_tv_questionDefault" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/buy_layout_return"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/white"
+                    android:paddingVertical="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buy_layout_question">
+
+                    <TextView
+                        android:id="@+id/buy_tv_returnDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/buy_review_btnReturnText"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/buy_user_arrow_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/buy_tv_returnDefault"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/buy_tv_returnDefault" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+        </me.didik.component.StickyNestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

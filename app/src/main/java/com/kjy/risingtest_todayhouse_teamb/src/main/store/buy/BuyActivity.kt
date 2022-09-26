@@ -1,15 +1,18 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store.buy
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Rect
 import android.os.Bundle
+import android.view.View
+import android.widget.ScrollView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityBuyBinding
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.model.*
+import kotlin.math.abs
 
 class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate) {
 
@@ -32,6 +35,61 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
 
         // 상품 정보 리사이클러뷰
         buyGoodsInfoRecycler()
+
+        // 상품 리뷰 사진들 리사이클러뷰
+        buyReviewPhotoRecycler()
+
+
+        // 탭 레이아웃 동작 리스너
+        binding.buyTabLayoutDetail.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                // 탭이 동작 선택되었을 때
+                when(tab?.position) {
+                    // 상품정보
+                    0 -> {
+                            binding.buySv.scrollTo(0, binding.buyLayoutDetail.top)
+                    }
+                    // 리뷰
+                    1 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutReview.top)
+                    }
+                    // 문의
+                    2 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutQuestion.top)
+                    }
+                    // 배송/환불
+                    3 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutReturn.top)
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // 탭이 이미 선택되었을 때
+                when(tab?.position) {
+                    // 상품정보
+                    0 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutDetail.top)
+                    }
+                    // 리뷰
+                    1 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutReview.top)
+                    }
+                    // 문의
+                    2 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutQuestion.top)
+                    }
+                    // 배송/환불
+                    3 -> {
+                        binding.buySv.scrollTo(0, binding.buyLayoutReturn.top)
+                    }
+                }
+            }
+
+        })
     }
 
 
@@ -85,4 +143,18 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
         binding.buyRvGoodsInfo.layoutManager = layoutManager
 
     }
+
+    private fun buyReviewPhotoRecycler() {
+        val reviewPhotoList = arrayListOf<BuyReviewPhotoData>(
+            BuyReviewPhotoData(R.drawable.buy_test_image_1),
+            BuyReviewPhotoData(R.drawable.buy_test_image_2),
+            BuyReviewPhotoData(R.drawable.buy_test_image_3),
+            BuyReviewPhotoData(R.drawable.buy_test_image_4)
+        )
+        val adapter = BuyReviewPhotoAdapter(reviewPhotoList)
+        binding.buyRvReviewPhoto.adapter = adapter
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.buyRvReviewPhoto.layoutManager = layoutManager
+    }
+
 }
