@@ -441,3 +441,54 @@ ViewTreeObserver의 OnScrollChangedListener를 사용하였는데 리스너 사�
 <img src = "https://user-images.githubusercontent.com/95080196/192151309-257937a4-7802-4b16-a9cc-fa479963110b.jpeg" width="30%" height="30%">
 <img src = "https://user-images.githubusercontent.com/95080196/192151311-b8c8005a-8f83-46cf-84ce-ec0d214fbabb.jpeg" width="30%" height="30%">
 <img src = "https://user-images.githubusercontent.com/95080196/192151314-5cd25e72-2f00-4759-b9bf-0b5856af7cb9.jpeg" width="30%" height="30%">
+
+
+### 👌 9일차 진행상황
+
+### ✅ 2차 피드백
+
+<aside>
+💡 로그인 쪽 버튼, 체크박스 UI 관련 로직 수정 필요
+
+</aside>
+
+<aside>
+💡 리사이클러뷰가 화면 전환시 늘어나는 현상이 있어 오류 수정이 필요
+
+</aside>
+
+<aside>
+💡 상품 구매 액티비티 UI 수정 보다는 먼저 필수기능들 구현부터 해놓고 나중에 수정이 필요
+
+</aside>
+
+<aside>
+💡 단위 구분 안되어있는 텍스트들 서버로부터 데이터 받기 전에 미리 수정 필요
+
+</aside>
+
+<aside>
+💡 상품 구매 액티비티에서 스타일링샷 사진들을 보여주는 리사이클러뷰
+
+</aside>
+
+### 👌 구현 진행상황
+
+<aside>
+💡 피드백때 받은 리사이클러뷰 관련 오류 수정 완료
+
+</aside>
+
+❓ 리사이클러에 데이터를 넣을때 리스트에 add함수로 넣었는데 onCreate()안에 선언해서 화면 전환시 계속 onCreate()가 호출됨에 따라 add함수가 그때마다 호출되면서 리스트에 추가적으로 아이템을 넣어 이런 현상이 발생한것같다.
+
+✅ add 함수를 사용하지 않고 데이터 클래스를 통해 리스트를 만들고 데이터 클래스를 객체로 하여 리스트에 바로 넣어주었더니 해결되었다.
+
+<aside>
+💡 상품 구매 액티비티 UI를 이어서 제작
+
+</aside>
+
+<aside>
+💡 구매하기 버튼 클릭시 바텀 시트 다이얼로그를 띄워줄 수 있게 구현중에 있다.
+
+</aside>
