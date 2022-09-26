@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.BuyPagerListBinding
 
-class BuyPagerAdapter: RecyclerView.Adapter<BuyPagerHolder>() {
+class BuyPagerAdapter(val buyPagerList: ArrayList<BuyPagerData>): RecyclerView.Adapter<BuyPagerHolder>() {
 
-    var buyPagerList = mutableListOf<BuyPagerData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyPagerHolder {
         val binding = BuyPagerListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -16,8 +15,8 @@ class BuyPagerAdapter: RecyclerView.Adapter<BuyPagerHolder>() {
     }
 
     override fun onBindViewHolder(holder: BuyPagerHolder, position: Int) {
-        val pagerData = buyPagerList[position]
-        holder.setBuyPager(pagerData)
+        val buyPagerData = buyPagerList[position]
+        holder.setBuyPager(buyPagerData)
     }
 
     override fun getItemCount(): Int {

@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.PopularCategoryMainListBinding
 
-class PopularMainAdapter: RecyclerView.Adapter<PopularMainHolder>() {
+class PopularMainAdapter(val categoryMainList: ArrayList<PopularMainData>): RecyclerView.Adapter<PopularMainHolder>() {
 
-    var categoryMainList = mutableListOf<PopularMainData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularMainHolder {
         val binding = PopularCategoryMainListBinding.inflate(LayoutInflater.from(parent.context), parent, false)

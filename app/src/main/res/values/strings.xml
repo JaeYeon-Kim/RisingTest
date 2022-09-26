@@ -28,6 +28,18 @@
     <string name="buy_brandButtonText">브랜드 홈</string>
     <string name="buy_userStyling_titleText">유저들의 스타일링샷</string>
     <string name="buy_userStyling_countText">1800</string>
+    <string name="buy_userStyling_wholeText">스타일링샷 전체보기</string>
+    <string name="buy_photo_mainText">첫 사진을 올리면 1,000 포인트를 드려요.</string>
+    <string name="buy_photo_subText">지금 살고 있는 공간을 공유하고\n포인트를 받아 쇼핑도 즐겨 보세요!</string>
+    <string name="buy_photo_uploadText">사진 올리기</string>
+    <string name="buy_photo_showBenefitText">혜택보기</string>
+    <string name="buy_detail_tabItemText_1">상품정보</string>
+    <string name="buy_detail_tabItemText_2">리뷰</string>
+    <string name="buy_detail_tabItemText_3">문의</string>
+    <string name="buy_detail_tabItemText_4">배송/환불</string>
+    <string name="buy_detail_tabItemText_5">추천</string>
+
+
 
     <!-- Main Activity -->
     <string name="main_floating_noticeText"><u>집들이,노하우 업로드 안내</u></string>

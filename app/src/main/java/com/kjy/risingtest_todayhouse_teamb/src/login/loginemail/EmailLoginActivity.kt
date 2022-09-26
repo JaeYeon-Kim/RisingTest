@@ -62,7 +62,6 @@ class EmailLoginActivity : BaseActivity<ActivityEmailLoginBinding>(ActivityEmail
 
         })
 
-
         binding.emailLoginBtnComplete.setOnClickListener {
             val email = binding.emailLoginEtEmail.text.toString()
             val password = binding.emailLoginEtPassword.text.toString()

@@ -6,9 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.HomePopularPagerListBinding
 
-class PopularPagerAdapter: RecyclerView.Adapter<PopularPagerHolder>() {
+class PopularPagerAdapter(val popularPagerList : ArrayList<PopularPagerData>): RecyclerView.Adapter<PopularPagerHolder>() {
 
-    var popularPagerList = mutableListOf<PopularPagerData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularPagerHolder {
         val binding = HomePopularPagerListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -16,7 +15,7 @@ class PopularPagerAdapter: RecyclerView.Adapter<PopularPagerHolder>() {
     }
 
     override fun onBindViewHolder(holder: PopularPagerHolder, position: Int) {
-        val pagerData = popularPagerList[position % 4]
+        val pagerData = popularPagerList[position % 5]
         holder.setPopularPager(pagerData)
     }
 

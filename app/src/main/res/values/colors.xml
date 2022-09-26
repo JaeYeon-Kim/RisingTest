@@ -14,6 +14,9 @@
     <color name="buy_brandBtn_storeNameColor">#5F696F</color>
     <color name="buy_brandBtn_brandDefaultTextColor">#8B949A</color>
     <color name="buy_brandBtn_brandDefaultBackgroundColor">#F6F5F5</color>
+    <color name="buy_scrollbar_trackColor">#ECEDEF</color>
+    <color name="buy_scrollbar_thumbColor">#818C93</color>
+    <color name="buy_photo_showBenefitTextColor">#CECECE</color>
 
 
     <!-- Popular Fragment -->

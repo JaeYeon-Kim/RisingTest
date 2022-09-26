@@ -16,7 +16,13 @@
     <style name="FloatAnimationPopupStyle">
         <item name="android:windowEnterAnimation">@anim/float_dialog_open</item>
         <item name="android:windowExitAnimation">@anim/float_dialog_close</item>
+    </style>
 
+    <!-- 구매 액티비티 - 가로형 리사이클러뷰 스크롤바 커스텀 -->
+    <style name="BuyCustomScrollStyle">
+        <item name="android:scrollbarAlwaysDrawHorizontalTrack">true</item>
+        <item name="android:scrollbarTrackHorizontal">@drawable/buy_scroll_custom_track</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/buy_scroll_custom_thumb</item>
     </style>
 
 
