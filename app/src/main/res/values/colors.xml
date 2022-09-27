@@ -18,6 +18,12 @@
     <color name="buy_scrollbar_thumbColor">#818C93</color>
     <color name="buy_photo_showBenefitTextColor">#CECECE</color>
     <color name="buy_review_statisticsBoxColor">#F5F7F9</color>
+    <color name="buy_sheet_itemLayoutColor">#F5F5F5</color>
+    <color name="buy_spinner_sub_arrowColor">#BDBDBD</color>
+    <color name="buy_spinner_sub_strokeColor">#E7E7E7</color>
+    <color name="buy_layout_quantity_strokeColor">#E1E1E1</color>
+    <color name="buy_sheet_boundaryLineColor">#E6E6E6</color>
+
 
 
     <!-- Popular Fragment -->

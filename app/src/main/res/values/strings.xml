@@ -45,6 +45,19 @@
     <string name="buy_review_btnQuestionDefaultText">문의</string>
     <string name="buy_review_btnQuestionCountText">2000</string>
     <string name="buy_review_btnReturnText">배송/교환/환불</string>
+    <string name="buy_sheet_mainChoiceDefaultText">색상:</string>
+    <string name="buy_sheet_mainChoiceText">화이트</string>
+    <string name="buy_sheet_boundary_symbol">/</string>
+    <string name="buy_sheet_subChoiceDefaultText">사이즈:</string>
+    <string name="buy_sheet_subChoiceText">270(260~270) 남성용</string>
+    <string name="buy_sheet_goodsCountText">1</string>
+    <string name="buy_sheet_goodsPriceUnitText">원</string>
+    <string name="buy_sheet_goodsPriceText">7900</string>
+    <string name="buy_sheet_orderPriceDefaultText">주문금액</string>
+    <string name="buy_sheet_orderPriceText">7900</string>
+    <string name="buy_sheet_orderPriceUnitText">원</string>
+    <string name="buy_sheet_btn_cart">장바구니</string>
+    <string name="buy_sheet_btn_quickBuy">바로구매</string>
 
 
     <!-- Main Activity -->

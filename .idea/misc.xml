@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bottom_sheet_custom.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/buy_brand_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/buy_btn_custom.xml" value="0.1035" />
         <entry key="app/src/main/res/drawable/buy_btn_styling_custom.xml" value="0.2535" />
@@ -10,7 +11,10 @@
         <entry key="app/src/main/res/drawable/buy_delivery_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/buy_photo_upload_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/buy_scroll_custom_thumb.xml" value="0.1115" />
+        <entry key="app/src/main/res/drawable/buy_spinner_main_custom.xml" value="0.148" />
+        <entry key="app/src/main/res/drawable/buy_spinner_sub_custom.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/dialog_bg_custom.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/dialog_dismiss_btn_custom.xml" value="0.149" />
         <entry key="app/src/main/res/drawable/email_join_btn_custom.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/email_join_btn_custom_2.xml" value="0.1415" />
         <entry key="app/src/main/res/drawable/email_login_et_custom.xml" value="0.1415" />
@@ -26,6 +30,10 @@
         <entry key="app/src/main/res/drawable/popular_btn_custom.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable/popular_indicator_custom.xml" value="0.1925" />
         <entry key="app/src/main/res/drawable/review_btn_custom.xml" value="0.133" />
+        <entry key="app/src/main/res/drawable/sheet_btn_buy_custom.xml" value="0.1495" />
+        <entry key="app/src/main/res/drawable/sheet_btn_cart_custom.xml" value="0.1495" />
+        <entry key="app/src/main/res/drawable/sheet_item_layout_custom.xml" value="0.149" />
+        <entry key="app/src/main/res/drawable/sheet_layout_quantity_custom.xml" value="0.1045" />
         <entry key="app/src/main/res/drawable/store_btn_categorymore_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/store_btn_search_custom.xml" value="0.1035" />
         <entry key="app/src/main/res/layout/activity_buy.xml" value="0.3072033898305085" />
@@ -35,10 +43,13 @@
         <entry key="app/src/main/res/layout/activity_join_email.xml" value="0.22760416666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_pay.xml" value="0.3015625" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/buy_bottom_sheet.xml" value="0.335" />
         <entry key="app/src/main/res/layout/buy_inform_list.xml" value="0.3125" />
         <entry key="app/src/main/res/layout/buy_pager_list.xml" value="0.3125" />
         <entry key="app/src/main/res/layout/buy_user_list.xml" value="0.3125" />
+        <entry key="app/src/main/res/layout/fragment_buy_bottom_sheet.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_homeparty.xml" value="0.303125" />
         <entry key="app/src/main/res/layout/fragment_move.xml" value="0.25" />

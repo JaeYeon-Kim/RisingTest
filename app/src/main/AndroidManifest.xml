@@ -14,6 +14,9 @@
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".src.main.store.buy.pay.PayActivity"
+            android:exported="false" />
+        <activity
             android:name=".src.main.store.buy.BuyActivity"
             android:exported="true" />
         <activity

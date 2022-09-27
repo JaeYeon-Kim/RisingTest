@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import android.widget.ScrollView
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -12,6 +13,7 @@ import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityBuyBinding
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.model.*
+import com.kjy.risingtest_todayhouse_teamb.util.BuyBottomSheet
 import kotlin.math.abs
 
 class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate) {
@@ -90,6 +92,13 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
             }
 
         })
+
+        // 구매하기 버튼 클릭시 띄우는 다이얼로그 호출
+        binding.buyBtnBuy.setOnClickListener {
+            val buyDialog = BuyBottomSheet()
+            buyDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.RoundCornerBottomSheetDialogTheme)
+            buyDialog.show(supportFragmentManager, BuyBottomSheet.TAG)
+        }
     }
 
 
