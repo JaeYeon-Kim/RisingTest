@@ -492,3 +492,71 @@ ViewTreeObserver의 OnScrollChangedListener를 사용하였는데 리스너 사�
 💡 구매하기 버튼 클릭시 바텀 시트 다이얼로그를 띄워줄 수 있게 구현중에 있다.
 
 </aside>
+
+
+### 👌 10일차 진행상황
+
+### 👌 구현 진행상황
+
+<aside>
+💡 나머지 add()함수로 구현한 리사이클러뷰 들도 하나하나 수정에 들어가고 있다.
+
+</aside>
+
+<aside>
+💡 상품 구매 액티비티에서 구매하기 버튼 클릭시 나오는 BottomSheetDialog와 다이얼로그 내의 스피너를 구현
+
+</aside>
+
+👉 자세한 UI는 현재 수정중
+
+<aside>
+💡 상품 구매 액티비티에서 탭레이아웃 클릭시 스크롤이 이동하는 기능을 구현
+
+</aside>
+
+<aside>
+💡 상품 구매 액티비티에서 탭 레이아웃을 고정시키는 기능을 구현
+
+</aside>
+
+<aside>
+💡 현재, 결제 액티비티 UI 제작과 상품 구매 액티비티에서 스크롤이벤트에 따른 탭 레이아웃의 각 탭 이동을 구현중
+
+</aside>
+
+<aside>
+💡 스토어 홈 API 연동은 서버분의 수정이 끝나는 대로 연동할 예정
+
+</aside>
+
+### ‼️ 개발 이슈
+
+<aside>
+💡 탭 레이아웃의 각 탭 클릭시 각 View의 좌표로 스크롤이 이동하는 기능을 구현하던 와중에 문제가 생겼다. 기존의 탭이 클릭된 탭을 클릭시 스크롤이 이동이 안되는 이슈가 발생하였다.
+
+</aside>
+
+✅ 원인을 살펴보니 기존의 탭이 클릭되었을때를 인식해주는 메소드인 
+
+`override fun onTabReselected(tab: TabLayout.Tab?)` 에도 스크롤 이벤트를 인식시켜주어야 기존이클릭된 탭에도 인식이되어 탭 클릭에 따른 스크롤이벤트가 잘 작동하였다.
+
+<aside>
+💡 상품 구매 액티비티에서 스크롤시 탭 레이아웃을 고정시키기 위해 ‘StickyHeaderView’ 라이브러리를 사용하였는데 헤더를 선언하였는데도 탭 레이아웃이 고정이 안되는 이슈가 발생하였다.
+
+</aside>
+
+<aside>
+💡 따라서, 기존의 NestedScrollView를 대체할 수 있는 Sticky 기능을 가진 NestedScrollView 라이브러리를 발견하여 적용하였는데, 라이브러리가 오래되어 적용하는 도중 오류가 발생하였다.
+
+</aside>
+
+‼️ Go to the documentation to learn how to Fix dependency resolution errors.
+
+✅ 두가지 해결방법으로 위 두 문제를 해결하였다.
+
+👉 gradle.propeties에서 android.nonTransitiveRClass=true를  android.enableJetifier=true으로 바꿈으로써 문제를 해결하였다. 해결방법의 뜻은 못찾았는데, 짐작하기로는 라이브러리가 오래되었고, 안드로이드 스튜디오의 버전이 계속 바뀌면서 대응하는 Gradle 쪽에서 오류가 발생한것으로 보인다.
+
+👉 그리고 스크롤뷰를 올릴 수 있는 최상단으로 위치를 변경하여 코드를 수정하였더니 잘 작동하였다.
+
+
