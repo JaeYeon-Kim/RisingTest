@@ -47,6 +47,7 @@
                     android:src="@drawable/buy_toolbar_home" />
 
                 <TextView
+                    android:id="@+id/buy_tv_mainTitle"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

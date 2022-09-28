@@ -1,9 +1,12 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store.buy
 
+import android.graphics.Paint
 import android.graphics.Rect
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ScrollView
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,17 +15,24 @@ import com.google.android.material.tabs.TabLayout
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityBuyBinding
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.StoreFragmentInterface
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.StoreService
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.model.*
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreHomeResponse
 import com.kjy.risingtest_todayhouse_teamb.util.BuyBottomSheet
+import java.text.DecimalFormat
 import kotlin.math.abs
 
-class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate) {
+class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate), StoreFragmentInterface {
 
     // 상품 구매 액티비티 - 유저 스타일링샷 데이터를 담는 리스트
     private var buyUserList = mutableListOf<BuyUserData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        StoreService(this).tryGetHomeMain()
+
 
         binding.buyBtnBack.setOnClickListener {
             onBackPressed()
@@ -163,6 +173,31 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
         binding.buyRvReviewPhoto.adapter = adapter
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.buyRvReviewPhoto.layoutManager = layoutManager
+    }
+
+    override fun onGetHomeMainSuccess(response: StoreHomeResponse) {
+
+        val decFormat = DecimalFormat("#,###")
+
+        for (Store in response.result) {
+            binding.buyTvMainTitle.text = Store.goodsTitle
+            binding.buyTvStoreTitle.text = Store.storeTitle
+            binding.buyTvStoreTitle2.text = Store.storeTitle
+            binding.buyTvGoodsTitle.text = Store.goodsTitle
+            binding.buyTvReviewCount.text = Store.reviewCount.toString()
+            binding.buyTvDcPercent.text = Store.percentRate.toString().plus("%")
+            binding.buyTvOgPrice.paintFlags = binding.buyTvOgPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            binding.buyTvOgPrice.text = decFormat.format(Store.originPrice)
+            val dcPrice = (Store.originPrice - ((Store.originPrice / 100) * Store.percentRate))
+            binding.buyTvDcPrice.text = decFormat.format(dcPrice)
+            binding.buyTvDeliveryPrice.text = Store.deliveryPrice.toString()
+            binding.buyTvTotalReview.text = Store.reviewCount.toString()
+        }
+
+    }
+
+    override fun onGetHomeMainFailure(message: String) {
+
     }
 
 }

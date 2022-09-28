@@ -16,6 +16,31 @@
     <string name="pay_layout_buyerPhone">휴대전화</string>
     <string name="pay_layout_buyerMainName">홍길동</string>
     <string name="pay_layout_buyerMainPhoneNumber">010-8506-6515</string>
+    <string name="pay_layout_order_mainTitleText">주문상품</string>
+    <string name="pay_layout_order_couponTitleText">쿠폰</string>
+    <string name="pay_layout_order_couponEnableText">사용 가능한 쿠폰이 없습니다</string>
+    <string name="pay_layout_order_couponQuestionText">쿠폰 코드가 있으신가요?</string>
+    <string name="pay_layout_order_couponCheck">확인</string>
+    <string name="pay_layout_point_mainTitleText">포인트</string>
+    <string name="pay_layout_point_enabledText">사용 가능한 포인트가 없습니다</string>
+    <string name="pay_layout_point_useBtnText">전액사용</string>
+    <string name="pay_layout_point_pointNowText">사용 가능 포인트</string>
+    <string name="pay_layout_point_Number">0</string>
+    <string name="pay_layout_point_NumberUnit">P</string>
+    <string name="pay_layout_payMethod_mainTitle">결제 수단</string>
+    <string name="pay_layout_payMethod_cardText">카드</string>
+    <string name="pay_layout_payMethod_inputText">무통장입금</string>
+    <string name="pay_layout_payMethod_kakaoPay">카카오페이</string>
+    <string name="pay_layout_payMethod_kakaoBenefit">1만원 즉시할인</string>
+    <string name="pay_layout_payMethod_toss">토스</string>
+    <string name="pay_layout_payMethod_tossBenefit">3000원 적립</string>
+    <string name="pay_layout_payMethod_naverPay">네이버페이</string>
+    <string name="pay_layout_payMethod_naverPayBenefit">최대5000적립</string>
+    <string name="pay_layout_payMethod_payco">페이코</string>
+    <string name="pay_layout_payMethod_paycoBenefit">최대3%적립</string>
+    <string name="pay_layout_payMethod_phone">핸드폰</string>
+
+
 
 
 
