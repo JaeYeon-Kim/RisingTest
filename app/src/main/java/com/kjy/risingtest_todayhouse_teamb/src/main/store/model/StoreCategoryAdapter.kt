@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.StoreCategoryListBinding
 
-class StoreCategoryAdapter: RecyclerView.Adapter<CategoryHolder>() {
+class StoreCategoryAdapter(var categoryList : ArrayList<CategoryData>): RecyclerView.Adapter<CategoryHolder>() {
 
-    var categoryList = mutableListOf<CategoryData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         val binding = StoreCategoryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)

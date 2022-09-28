@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.StoreCategoryGoodsListBinding
 
-class GoodsCategoryAdapter : RecyclerView.Adapter<GoodsHolder>() {
-
-    var goodsList = mutableListOf<GoodsCategoryData>()
+class GoodsCategoryAdapter(var goodsList : ArrayList<GoodsCategoryData>) : RecyclerView.Adapter<GoodsHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoodsHolder {

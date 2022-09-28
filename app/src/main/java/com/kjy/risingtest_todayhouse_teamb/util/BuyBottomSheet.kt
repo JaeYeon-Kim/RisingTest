@@ -51,6 +51,7 @@ class BuyBottomSheet : BottomSheetDialogFragment() {
         binding.sheetBtnQuickBuy.setOnClickListener {
             val intent = Intent(requireContext(), PayActivity::class.java)
             startActivity(intent)
+            dialog?.dismiss()
         }
 
     }

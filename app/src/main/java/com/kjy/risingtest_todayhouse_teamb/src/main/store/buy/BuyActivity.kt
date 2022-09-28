@@ -92,7 +92,6 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
             }
 
         })
-
         // 구매하기 버튼 클릭시 띄우는 다이얼로그 호출
         binding.buyBtnBuy.setOnClickListener {
             val buyDialog = BuyBottomSheet()

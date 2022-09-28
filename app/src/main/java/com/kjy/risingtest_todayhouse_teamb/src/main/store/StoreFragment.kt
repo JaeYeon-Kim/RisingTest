@@ -2,6 +2,7 @@ package com.kjy.risingtest_todayhouse_teamb.src.main.store
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,10 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
 import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentStoreBinding
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.CategoryData
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.GoodsCategoryAdapter
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.GoodsCategoryData
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreCategoryAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.*
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerData
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.popular.StorePopularAdapter
@@ -24,32 +22,25 @@ import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRe
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRelativeData
 
 
-class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store){
-
-
-
-    // 스토어 프래그먼트 메인 카테고리 리스트
-    private var categoryList = mutableListOf<CategoryData>()
-
-    // 스토어 프래그먼트 상품 카테고리 리스트
-    private var goodsList = mutableListOf<GoodsCategoryData>()
+class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store), StoreFragmentInterface{
 
     // 광고 뷰페이저 리스트
     private var storePagerList = mutableListOf<StorePagerData>()
 
-    // 스토어 프래그먼트의 최근 본 상품 리스트
-    private var storeRecentList = mutableListOf<StoreRecentData>()
-
-    // 스토어 프래그먼트의 내가 본 상품의 연관상품 리스트
-    private var storeRelativeList = mutableListOf<StoreRelativeData>()
-
-    // 스토어 프래그먼트의 인기상품 리스트
-    private var storePopularList = mutableListOf<StorePopularData>()
-
     private lateinit var listener: ViewTreeObserver.OnScrollChangedListener
+
+
+    private val recentAdapter = StoreRecentAdapter()
+
+    private val relativeAdapter = StoreRelativeAdapter()
+
+    private val popularAdapter = StorePopularAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        StoreService(this).tryGetHomeMain()
 
         // 스와이프 리프레시 레이아웃 기능 넣기
         // false로 해주어야 새로고침 아이콘이 사라짐
@@ -70,8 +61,6 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         // 스토어 프래그먼트 광고 뷰페이저
         storeAdViewpager()
 
-        // 스토어 프래그먼트 최근 본 상품 연동
-        storeRecentRecycler()
 
         // 스토어 프래그먼트 내가 본 상품의 연관상품 연동
         storeRelativeRecycler()
@@ -79,6 +68,8 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
         // 스토어 프래그먼트 인기 상품 연동
         storePopularRecycler()
 
+        // 최근 본 상품
+        storeRecentRecycler()
 
     }
 
@@ -89,53 +80,50 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
     // 스토어 프래그먼트의 메인 카테고리 리사이클러뷰 구현
     private fun categoryRecycler() {
-        var adapter = StoreCategoryAdapter()
+        val categoryList = arrayListOf<CategoryData>(
+            CategoryData(R.drawable.store_category_kitchen, "주방필템"),
+            CategoryData(R.drawable.store_category_best, "베스트"),
+            CategoryData(R.drawable.store_category_today, "오늘의딜"),
+            CategoryData(R.drawable.store_category_goods, "오!굿즈"),
+            CategoryData(R.drawable.store_category_quick, "빠른배송"),
+            CategoryData(R.drawable.store_category_premium, "프리미엄"),
+            CategoryData(R.drawable.store_category_rippermarket, "리퍼마켓"),
+            CategoryData(R.drawable.store_category_new, "신상특가"),
+            CategoryData(R.drawable.store_category_foodmarket, "푸드마켓"),
+            CategoryData(R.drawable.store_category_special, "기획전")
+        )
+        var adapter = StoreCategoryAdapter(categoryList)
         binding.storeRvCategory.adapter = adapter
-        categoryList.apply {
-            add(CategoryData(R.drawable.store_category_kitchen, "주방필템"))
-            add(CategoryData(R.drawable.store_category_best, "베스트"))
-            add(CategoryData(R.drawable.store_category_today, "오늘의딜"))
-            add(CategoryData(R.drawable.store_category_goods, "오!굿즈"))
-            add(CategoryData(R.drawable.store_category_quick, "빠른배송"))
-            add(CategoryData(R.drawable.store_category_premium, "프리미엄"))
-            add(CategoryData(R.drawable.store_category_rippermarket, "리퍼마켓"))
-            add(CategoryData(R.drawable.store_category_new, "신상특가"))
-            add(CategoryData(R.drawable.store_category_foodmarket, "푸드마켓"))
-            add(CategoryData(R.drawable.store_category_special, "기획전"))
-        }
-        adapter.categoryList = categoryList
         val layoutManager = GridLayoutManager(requireContext(), 5)
         binding.storeRvCategory.layoutManager = layoutManager
 
     }
 
     private fun categoryGoodsRecycler() {
-        var adapter = GoodsCategoryAdapter()
+        val goodsList = arrayListOf<GoodsCategoryData>(
+            GoodsCategoryData(R.drawable.store_category_goods_image_1),
+            GoodsCategoryData(R.drawable.store_category_goods_image_2),
+            GoodsCategoryData(R.drawable.store_category_goods_image_3),
+            GoodsCategoryData(R.drawable.store_category_goods_image_4),
+            GoodsCategoryData(R.drawable.store_category_goods_image_5),
+            GoodsCategoryData(R.drawable.store_category_goods_image_6),
+            GoodsCategoryData(R.drawable.store_category_goods_image_7),
+            GoodsCategoryData(R.drawable.store_category_goods_image_8),
+            GoodsCategoryData(R.drawable.store_category_goods_image_9),
+            GoodsCategoryData(R.drawable.store_category_goods_image_10),
+            GoodsCategoryData(R.drawable.store_category_goods_image_11),
+            GoodsCategoryData(R.drawable.store_category_goods_image_12),
+            GoodsCategoryData(R.drawable.store_category_goods_image_13),
+            GoodsCategoryData(R.drawable.store_category_goods_image_14),
+            GoodsCategoryData(R.drawable.store_category_goods_image_15),
+            GoodsCategoryData(R.drawable.store_category_goods_image_16)
+        )
+        var adapter = GoodsCategoryAdapter(goodsList)
         binding.storeRvCategoryGoods.adapter = adapter
-        goodsList.apply {
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_1))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_2))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_3))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_4))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_5))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_6))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_7))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_8))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_9))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_10))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_11))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_12))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_13))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_14))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_15))
-            add(GoodsCategoryData(R.drawable.store_category_goods_image_16))
-
-        }
-        adapter.goodsList = goodsList
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false )
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.storeRvCategoryGoods.layoutManager = layoutManager
-
     }
+
 
     private fun storeAdViewpager() {
         val adapter = StorePagerAdapter()
@@ -152,97 +140,45 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
     }
 
     private fun storeRecentRecycler() {
-        val adapter = StoreRecentAdapter()
-        binding.storeRvRecent.adapter = adapter
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_1, "스타일링홈", "test침대", "60%",
-                    30000, "4.8", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_2, "스타일링홈", "test침대", "60%",
-                30000, "4.9", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_3, "스타일링홈", "test침대", "60%",
-                50000, "4.6", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_4, "스타일링홈", "test침대", "60%",
-                130000, "4.3", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_5, "스타일링홈", "test침대", "60%",
-                130000, "4.2", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_6, "스타일링홈", "test침대", "60%",
-                290000, "4.1", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_7, "스타일링홈", "test침대", "60%",
-                150000, "4.8", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_8, "스타일링홈", "test침대", "60%",
-                230000, "4.9", 15000))
-        }
-        storeRecentList.apply {
-            add(StoreRecentData(R.drawable.store_testimage_9, "스타일링홈", "test침대", "60%",
-                130000, "5.0", 15000))
-        }
-        adapter.storeRecentList = storeRecentList
+        binding.storeRvRecent.adapter = recentAdapter
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.storeRvRecent.layoutManager = layoutManager
     }
 
+
     private fun storeRelativeRecycler() {
-        val adapter = StoreRelativeAdapter()
-        binding.storeRvRelative.adapter = adapter
-        storeRelativeList.apply {
-            add(StoreRelativeData(R.drawable.store_testimage_1, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500 ))
-            add(StoreRelativeData(R.drawable.store_testimage_2, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500 ))
-            add(StoreRelativeData(R.drawable.store_testimage_3, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500 ))
-            add(StoreRelativeData(R.drawable.store_testimage_4, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500 ))
-        }
-        adapter.storeRelativeList = storeRelativeList
+        binding.storeRvRelative.adapter = relativeAdapter
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.storeRvRelative.layoutManager = layoutManager
+
     }
 
     private fun storePopularRecycler() {
-        val adapter = StorePopularAdapter()
-        binding.storeRvPopular.adapter = adapter
-        storePopularList.apply {
-            add(StorePopularData(R.drawable.store_testimage_1, "오트밀하우스",
-                    "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                    , "4.8", 1500))
-            add(StorePopularData(R.drawable.store_testimage_2, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500))
-            add(StorePopularData(R.drawable.store_testimage_3, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500))
-            add(StorePopularData(R.drawable.store_testimage_4, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500))
-            add(StorePopularData(R.drawable.store_testimage_5, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500))
-            add(StorePopularData(R.drawable.store_testimage_6, "오트밀하우스",
-                "데이지 LED 조명 3단 벙커 수납 침대 SS/Q", "40%", 40000
-                , "4.8", 1500))
-        }
-        adapter.storePopularList = storePopularList
+
+        binding.storeRvPopular.adapter = popularAdapter
         val layoutManager = GridLayoutManager(requireContext(), 2)
         binding.storeRvPopular.layoutManager = layoutManager
+    }
+
+    // 요청을 성공적으로 받아왔을때
+    override fun onGetHomeMainSuccess(response: StoreHomeResponse) {
+        if(response.isSuccess) {
+            Log.d("스토어프래그먼트 ", "${response.result}")
+            recentAdapter.storeRecentList = response.result
+            recentAdapter.notifyDataSetChanged()
+
+            Log.d("연관상품", "${response.result}")
+            relativeAdapter.storeRelativeList = response.result
+            relativeAdapter.notifyDataSetChanged()
+
+            Log.d("인기상품", "${response.message}")
+            popularAdapter.storePopularList = response.result
+            popularAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onGetHomeMainFailure(message: String) {
+        showCustomToast("오류 : $message")
     }
 
 }
