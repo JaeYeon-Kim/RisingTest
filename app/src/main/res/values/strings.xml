@@ -1,5 +1,12 @@
 <resources>
 
+    <!-- CompleteActivity -->
+    <string name="complete_titleText">결과</string>
+    <string name="complete_btnText">주문현황보기</string>
+
+
+
+
     <!-- PayActivity -->
     <string name="pay_toolbar_titleText">주문/결제</string>
     <string name="pay_completeBtn_PriceText">7900</string>
@@ -53,6 +60,13 @@
     <string name="pay_layout_terms_essentialText_3_sub_3">・ NICE페이먼츠(주)</string>
     <string name="pay_layout_terms_checkText">본인은 만 14세 이상이며, 주문 내용을 확인하였습니다.</string>
     <string name="pay_layout_terms_checkText_sub">(주)버킷플레이스는 통신판매중개자로 거래 당사자가 아니므로, 판매자가 등록한 상품정보 및 거래 등에 대해 책임을 지지 않습니다 (단, (주)버킷플레이스가 판매자로 등록 판매한 상품은판매자로서 책임을 부담합니다.)</string>
+    <string name="pay_order_tv_storeTitle">(주)레토지엠에스</string>
+    <string name="pay_order_tv_deliveryDefaultText">배송비</string>
+    <string name="pay_order_tv_deliveryPriceText">0원</string>
+    <string name="pay_order_tv_goodsTitle">[오늘의딜]레토 접이식 바베큐 불멍 캠핑화로 대 LCP-FB01</string>
+    <string name="pay_order_tv_goodsOption">LCP-FB01</string>
+    <string name="pay_order_tv_goodsPrice">18,900원</string>
+    <string name="pay_order_tv_amount">1개</string>
 
 
     <!-- BuyActivity -->
@@ -96,6 +110,13 @@
     <string name="buy_review_defaultText">리뷰</string>
     <string name="buy_review_countText">200</string>
     <string name="buy_review_btnDefaultText">리뷰 더보기</string>
+    <string name="buy_review_btnDefaultText_2">리뷰쓰기</string>
+    <string name="buy_review_scoreText">5.0</string>
+    <string name="buy_review_progressText_1">5점</string>
+    <string name="buy_review_progressText_2">4점</string>
+    <string name="buy_review_progressText_3">3점</string>
+    <string name="buy_review_progressText_4">2점</string>
+    <string name="buy_review_progressText_5">1점</string>
     <string name="buy_review_btnCountText">1200</string>
     <string name="buy_review_btnQuestionDefaultText">문의</string>
     <string name="buy_review_btnQuestionCountText">2000</string>
@@ -113,6 +134,8 @@
     <string name="buy_sheet_orderPriceUnitText">원</string>
     <string name="buy_sheet_btn_cart">장바구니</string>
     <string name="buy_sheet_btn_quickBuy">바로구매</string>
+    <string name="buy_review_buyMethodText">오늘의집 구매</string>
+    <string name="buy_review_declare">신고</string>
 
 
     <!-- Main Activity -->

@@ -10,9 +10,11 @@
         <entry key="app/src/main/res/drawable/buy_custom_scroll_track.xml" value="0.1115" />
         <entry key="app/src/main/res/drawable/buy_delivery_btn_custom.xml" value="0.2535" />
         <entry key="app/src/main/res/drawable/buy_photo_upload_btn_custom.xml" value="0.2535" />
+        <entry key="app/src/main/res/drawable/buy_review_box_custom.xml" value="0.2315" />
         <entry key="app/src/main/res/drawable/buy_scroll_custom_thumb.xml" value="0.1115" />
         <entry key="app/src/main/res/drawable/buy_spinner_main_custom.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/buy_spinner_sub_custom.xml" value="0.148" />
+        <entry key="app/src/main/res/drawable/complete_btn_custom.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/coupon_btn_custom.xml" value="0.221" />
         <entry key="app/src/main/res/drawable/dialog_bg_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/dialog_dismiss_btn_custom.xml" value="0.149" />
@@ -41,7 +43,7 @@
         <entry key="app/src/main/res/drawable/sheet_layout_quantity_custom.xml" value="0.1045" />
         <entry key="app/src/main/res/drawable/store_btn_categorymore_custom.xml" value="0.2265" />
         <entry key="app/src/main/res/drawable/store_btn_search_custom.xml" value="0.1035" />
-        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.3072033898305085" />
+        <entry key="app/src/main/res/layout/activity_buy.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_complete.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/activity_email_join.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_email_login.xml" value="0.25" />
@@ -70,8 +72,10 @@
         <entry key="app/src/main/res/layout/order_expandable_second.xml" value="0.3223958333333333" />
         <entry key="app/src/main/res/layout/pay_layout_total.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/pay_method_list.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/pay_order_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/popular_category_main_list.xml" value="0.21614583333333334" />
         <entry key="app/src/main/res/layout/popular_pager_list.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/layout/review_comment_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/review_photo_list.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/layout/store_category_goods_list.xml" value="0.19444444444444445" />
         <entry key="app/src/main/res/layout/store_category_list.xml" value="0.33" />

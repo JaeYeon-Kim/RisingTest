@@ -9,6 +9,5 @@ import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityCompleteBinding
 class CompleteActivity : BaseActivity<ActivityCompleteBinding>(ActivityCompleteBinding::inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 }

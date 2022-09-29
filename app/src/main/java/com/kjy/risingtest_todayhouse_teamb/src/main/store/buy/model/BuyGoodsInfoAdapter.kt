@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kjy.risingtest_todayhouse_teamb.databinding.GoodsInfoListBinding
 
-class BuyGoodsInfoAdapter(var goodsInfoList : ArrayList<BuyGoodsInfoData>): RecyclerView.Adapter<GoodsInfoHolder>() {
+class BuyGoodsInfoAdapter: RecyclerView.Adapter<GoodsInfoHolder>() {
 
+    var goodsInfoList = ArrayList<BuyGoodsInfoData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoodsInfoHolder {
 
@@ -26,9 +27,9 @@ class BuyGoodsInfoAdapter(var goodsInfoList : ArrayList<BuyGoodsInfoData>): Recy
 }
 
 class GoodsInfoHolder(val binding: GoodsInfoListBinding): RecyclerView.ViewHolder(binding.root) {
-    fun setGoodsInfo(buyGoodsInfoData: BuyGoodsInfoData) {
+    fun setGoodsInfo(goodsInfoData: BuyGoodsInfoData) {
         Glide.with(itemView)
-            .load(buyGoodsInfoData.uri)
+            .load(goodsInfoData.uri)
             .into(binding.buyIvGoodsInfo)
     }
 

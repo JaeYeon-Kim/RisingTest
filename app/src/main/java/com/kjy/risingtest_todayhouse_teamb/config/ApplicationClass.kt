@@ -2,6 +2,7 @@ package com.kjy.risingtest_todayhouse_teamb.config
 
 import android.app.Application
 import android.content.SharedPreferences
+import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

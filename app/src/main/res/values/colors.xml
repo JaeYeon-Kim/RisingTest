@@ -6,6 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
+
+    <!-- CompleteActivity -->
+    <color name="complete_boundaryLineColor">#EEEDED</color>
+
     <!-- PayActivity -->
     <color name="pay_layout_main_backgroundColor">#EAEBEF</color>
     <color name="pay_layout_buyer_defaultTextColor">#C3C3C3</color>
@@ -13,6 +17,7 @@
     <color name="pay_boundaryLine_payTotalColor">#F3F4F5</color>
     <color name="pay_terms_backgroundColor">#F8F8FA</color>
     <color name="pay_terms_checkTextColor">#A8AEB2</color>
+    <color name="pay_order_backgroundColor">#F7F8FB</color>
 
 
     <!-- Buy Activity -->
@@ -26,12 +31,14 @@
     <color name="buy_scrollbar_trackColor">#ECEDEF</color>
     <color name="buy_scrollbar_thumbColor">#818C93</color>
     <color name="buy_photo_showBenefitTextColor">#CECECE</color>
-    <color name="buy_review_statisticsBoxColor">#F5F7F9</color>
+    <color name="buy_review_statisticsBoxColor">#F8F8FA</color>
     <color name="buy_sheet_itemLayoutColor">#F5F5F5</color>
     <color name="buy_spinner_sub_arrowColor">#BDBDBD</color>
     <color name="buy_spinner_sub_strokeColor">#E7E7E7</color>
     <color name="buy_layout_quantity_strokeColor">#E1E1E1</color>
     <color name="buy_sheet_boundaryLineColor">#E6E6E6</color>
+    <color name="buy_box_boundaryLineColor">#E7E7E9</color>
+    <color name="buy_reviewBox_defaultColor">#DCDCE0</color>
 
 
 

@@ -810,7 +810,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:text="@string/pay_layout_payTotal_priceText"
+                    android:text="18,900"
                     android:textColor="@color/todayHouse_mainColor"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_finalUnit"

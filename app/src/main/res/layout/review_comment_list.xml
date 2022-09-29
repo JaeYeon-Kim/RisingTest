@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/comment_iv_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/review_profile_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/comment_tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/complete_btnText"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/comment_iv_profile"
+        app:layout_constraintTop_toTopOf="@id/comment_iv_profile" />
+
+    <RatingBar
+        android:id="@+id/comment_rb"
+        style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rating="5"
+        app:layout_constraintBottom_toBottomOf="@id/comment_iv_profile"
+        app:layout_constraintStart_toStartOf="@id/comment_tv_nickname"
+        app:layout_constraintTop_toBottomOf="@id/comment_tv_nickname" />
+
+    <TextView
+        android:id="@+id/comment_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buy_review_defaultText"
+        app:layout_constraintBottom_toBottomOf="@id/comment_rb"
+        app:layout_constraintStart_toEndOf="@id/comment_rb"
+        app:layout_constraintTop_toTopOf="@id/comment_rb" />
+
+    <TextView
+        android:id="@+id/comment_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="・"
+        app:layout_constraintBottom_toBottomOf="@id/comment_date"
+        app:layout_constraintStart_toEndOf="@id/comment_date"
+        app:layout_constraintTop_toTopOf="@id/comment_date" />
+
+    <TextView
+        android:id="@+id/comment_tv_buyMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buy_review_buyMethodText"
+        app:layout_constraintBottom_toBottomOf="@id/comment_symbol"
+        app:layout_constraintStart_toEndOf="@id/comment_symbol"
+        app:layout_constraintTop_toTopOf="@id/comment_symbol" />
+
+    <TextView
+        android:id="@+id/comment_tv_declare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/buy_review_declare"
+        app:layout_constraintBottom_toBottomOf="@id/comment_tv_buyMethod"
+        app:layout_constraintStart_toEndOf="@id/comment_tv_buyMethod"
+        app:layout_constraintTop_toTopOf="@id/comment_tv_buyMethod" />
+
+    <TextView
+        android:id="@+id/comment_buy_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/complete_titleText"
+        app:layout_constraintStart_toStartOf="@id/comment_iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/comment_iv_profile" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/comment_cv_goods"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/comment_iv_profile"
+        app:layout_constraintTop_toBottomOf="@id/comment_buy_option">
+
+        <ImageView
+            android:id="@+id/comment_iv_goods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/review_goods_image" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/comment_tv_writing"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/complete_btnText"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/comment_cv_goods"
+        app:layout_constraintTop_toBottomOf="@id/comment_cv_goods" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

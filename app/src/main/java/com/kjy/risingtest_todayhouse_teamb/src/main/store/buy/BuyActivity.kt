@@ -23,15 +23,25 @@ import com.kjy.risingtest_todayhouse_teamb.util.BuyBottomSheet
 import java.text.DecimalFormat
 import kotlin.math.abs
 
-class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate), StoreFragmentInterface {
+class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate), StoreFragmentInterface, BuyReviewInterface {
 
     // 상품 구매 액티비티 - 유저 스타일링샷 데이터를 담는 리스트
     private var buyUserList = mutableListOf<BuyUserData>()
+
+    // 리뷰 어댑터
+    private val commentAdapter = ReviewCommentAdapter()
+
+
+    private val infoAdapter = BuyGoodsInfoAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         StoreService(this).tryGetHomeMain()
+
+//        BuyReviewService(this).tryGetReview()
+//
+//        InfoService(this).tryGetInfo()
 
 
         binding.buyBtnBack.setOnClickListener {
@@ -50,6 +60,9 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
 
         // 상품 리뷰 사진들 리사이클러뷰
         buyReviewPhotoRecycler()
+
+        // 구매 액티비티의 리뷰 리사이클러뷰
+        reviewCommentRecycler()
 
 
         // 탭 레이아웃 동작 리스너
@@ -115,12 +128,18 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
         super.onBackPressed()
     }
 
+    private fun reviewCommentRecycler() {
+        binding.buyRvReviewComment.adapter = commentAdapter
+        val layoutManager = LinearLayoutManager(this)
+        binding.buyRvReviewComment.layoutManager = layoutManager
+    }
+
     private fun buyPager() {
         val buyPagerList = arrayListOf<BuyPagerData>(
-                    BuyPagerData(R.drawable.store_viewpager_image_1),
-                    BuyPagerData(R.drawable.store_viewpager_image_2),
-                    BuyPagerData(R.drawable.store_viewpager_image_3),
-                    BuyPagerData(R.drawable.store_viewpager_image_4))
+                    BuyPagerData(R.drawable.buy_test_image_1),
+                    BuyPagerData(R.drawable.buy_test_image_2),
+                    BuyPagerData(R.drawable.buy_test_image_3),
+                    BuyPagerData(R.drawable.buy_test_image_4))
 
         val adapter = BuyPagerAdapter(buyPagerList)
         binding.buyVp.adapter = adapter
@@ -150,16 +169,16 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
     }
 
     private fun buyGoodsInfoRecycler() {
+        binding.buyRvGoodsInfo.adapter = infoAdapter
         val goodsInfoList = arrayListOf<BuyGoodsInfoData>(
-            BuyGoodsInfoData(R.drawable.buy_info_image_1),
-            BuyGoodsInfoData(R.drawable.buy_info_image_2),
-            BuyGoodsInfoData(R.drawable.buy_info_image_3)
+            BuyGoodsInfoData(R.drawable.buy_test_image_1),
+            BuyGoodsInfoData(R.drawable.buy_test_image_2),
+            BuyGoodsInfoData(R.drawable.buy_test_image_3),
+            BuyGoodsInfoData(R.drawable.buy_test_image_4)
         )
-        val adapter = BuyGoodsInfoAdapter(goodsInfoList)
-        binding.buyRvGoodsInfo.adapter = adapter
+        infoAdapter.goodsInfoList = goodsInfoList
         val layoutManager = LinearLayoutManager(this)
         binding.buyRvGoodsInfo.layoutManager = layoutManager
-
     }
 
     private fun buyReviewPhotoRecycler() {
@@ -199,5 +218,17 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
     override fun onGetHomeMainFailure(message: String) {
 
     }
+
+    override fun onGetReviewSuccess(response: ReviewResponse) {
+        if(response.isSuccess) {
+            commentAdapter.reviewCommentList = response.result
+            commentAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onGetReviewFailure(message: String) {
+        showCustomToast("오류 : $message")
+    }
+
 
 }

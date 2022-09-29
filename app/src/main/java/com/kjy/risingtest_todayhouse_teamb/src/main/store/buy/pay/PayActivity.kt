@@ -1,27 +1,39 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityPayBinding
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.complete.CompleteActivity
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayMethodAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayMethodData
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayOrderAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayOrderData
 
 class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate) {
 
     private val payAdapter = PayMethodAdapter()
 
+    private val orderAdapter = PayOrderAdapter()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding.payBtnComplete.setOnClickListener{
+            val intent = Intent(this, CompleteActivity::class.java)
+            startActivity(intent)
+        }
+
         // 결제 방법 리사이클러뷰
         payMethodRecycler()
+
+        payOrderRecycler()
 
 
         // 결제 방법 리사이클러뷰 리스너
@@ -116,5 +128,15 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
         payAdapter.payMethodList = payMethodList
         val layoutManager = GridLayoutManager(this, 4)
         binding.payRvPayMethod.layoutManager = layoutManager
+    }
+
+    private fun payOrderRecycler() {
+        var payorderList = arrayListOf<PayOrderData>(
+            PayOrderData("(주)레토지엠에스", "[오늘의딜]레토 접이식 바베큐 불멍 캠핑화로 대 LCP-FB01", "LCP-FB01")
+        )
+        binding.payRvOrderLayout.adapter = orderAdapter
+        orderAdapter.payOrderList = payorderList
+        val layoutManager = LinearLayoutManager(this)
+        binding.payRvOrderLayout.layoutManager = layoutManager
     }
     }

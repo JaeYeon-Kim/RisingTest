@@ -15,10 +15,10 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".src.main.store.buy.pay.complete.CompleteActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".src.main.store.buy.pay.PayActivity"
-            android:exported="true"></activity>
+            android:exported="true"/>
         <activity
             android:name=".src.main.store.buy.BuyActivity"
             android:exported="true" />
