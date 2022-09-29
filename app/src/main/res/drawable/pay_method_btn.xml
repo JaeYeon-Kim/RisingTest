@@ -5,7 +5,6 @@
         android:drawable="@drawable/pay_method_btn_after"
         android:state_selected="true"/>
 
-    <item android:drawable="@drawable/pay_method_btn_before"
-        android:state_selected="false"/>
+    <item android:drawable="@drawable/pay_method_btn_before" />
 
 </selector>

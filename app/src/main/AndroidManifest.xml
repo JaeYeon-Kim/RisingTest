@@ -14,9 +14,11 @@
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".src.main.store.buy.pay.complete.CompleteActivity"
+            android:exported="false" />
+        <activity
             android:name=".src.main.store.buy.pay.PayActivity"
-            android:exported="true" />
-
+            android:exported="true"></activity>
         <activity
             android:name=".src.main.store.buy.BuyActivity"
             android:exported="true" />
@@ -35,14 +37,11 @@
         <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".src.main.MainActivity"

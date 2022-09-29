@@ -10,6 +10,10 @@
     <color name="pay_layout_main_backgroundColor">#EAEBEF</color>
     <color name="pay_layout_buyer_defaultTextColor">#C3C3C3</color>
     <color name="pay_layout_couponCheck_backgroundColor">#F7F8FA</color>
+    <color name="pay_boundaryLine_payTotalColor">#F3F4F5</color>
+    <color name="pay_terms_backgroundColor">#F8F8FA</color>
+    <color name="pay_terms_checkTextColor">#A8AEB2</color>
+
 
     <!-- Buy Activity -->
     <color name="buy_main_backgroundColor">#F8F8FA</color>

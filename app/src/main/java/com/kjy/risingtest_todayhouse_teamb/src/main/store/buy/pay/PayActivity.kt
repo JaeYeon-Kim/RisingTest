@@ -4,13 +4,63 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityPayBinding
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayMethodAdapter
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.pay.model.PayMethodData
 
 class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate) {
+
+    private val payAdapter = PayMethodAdapter()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 결제 방법 리사이클러뷰
+        payMethodRecycler()
+
+
+        // 결제 방법 리사이클러뷰 리스너
+        payAdapter.setItemClickListener(object: PayMethodAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                when(position) {
+                    0  -> {
+                        showCustomToast("첫번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                    1 -> {
+                        showCustomToast("두번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+
+                    2 -> {
+                        showCustomToast("세번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                    3 -> {
+                        showCustomToast("네번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                    4 -> {
+                        showCustomToast("다섯번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                    5 -> {
+                        showCustomToast("여섯번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                    6 -> {
+                        showCustomToast("일곱번째 아이템 입니다.")
+                        v.isSelected = v.isSelected != true
+                    }
+                }
+            }
+
+        })
 
 
         // 메인 스피너에 입력할 가상의 데이터 작성
@@ -50,7 +100,21 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
             }
         }
         }
-
-
         }
+
+    private fun payMethodRecycler() {
+        var payMethodList = arrayListOf<PayMethodData>(
+                            PayMethodData(R.drawable.pay_method_icon_1, "카드", ""),
+                            PayMethodData(R.drawable.pay_method_icon_2, "무통장입금", ""),
+                            PayMethodData(R.drawable.pay_method_icon_3, "카카오페이", "1만원 즉시할인"),
+                            PayMethodData(R.drawable.pay_method_icon_4, "토스", "3000원 적립"),
+                            PayMethodData(R.drawable.pay_method_icon_5, "네이버페이", "최대5000적립"),
+                            PayMethodData(R.drawable.pay_method_icon_6, "페이코", "최대3%적립"),
+                            PayMethodData(R.drawable.pay_method_icon_7, "핸드폰", ""))
+
+        binding.payRvPayMethod.adapter = payAdapter
+        payAdapter.payMethodList = payMethodList
+        val layoutManager = GridLayoutManager(this, 4)
+        binding.payRvPayMethod.layoutManager = layoutManager
+    }
     }

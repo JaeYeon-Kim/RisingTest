@@ -347,7 +347,6 @@
                     android:id="@+id/pay_btn_orderLayout_expandable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -358,12 +357,16 @@
                         android:id="@+id/pay_tv_orderLayout_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="300dp"
+                        android:layout_marginStart="10dp"
                         android:text="@string/pay_layout_order_mainTitleText"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
 
                     <ImageView
                         android:id="@+id/pay_btn_expanded_orderLayout"
@@ -611,29 +614,540 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:text="@string/pay_layout_payMethod_mainTitle"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/payMethod_btn_card"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pay_rv_payMethod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payMethod_mainTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pay_layout_payTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pay_layout_payMethod">
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf=""
-                    android:background="@drawable/pay_method_btn"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/pay_layout_payTotal_mainTitleText"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_whole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/pay_layout_payTotal_subTitleText_1"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/pay_tv_payTotal_title"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_title" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_deliveryFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pay_layout_payTotal_subTitleText_2"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/pay_tv_payTotal_whole"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_whole" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_couponUse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pay_layout_payTotal_subTitleText_3"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/pay_tv_payTotal_deliveryFee"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_deliveryFee" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_pointUse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pay_layout_payTotal_subTitleText_4"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/pay_tv_payTotal_couponUse"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_couponUse" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_wholePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_wholePriceText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_wholePriceUnit"
+                    app:layout_constraintEnd_toStartOf="@id/pay_tv_payTotal_wholePriceUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_wholePriceUnit" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_wholePriceUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/pay_layout_payTotal_PriceUnitText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_whole"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_whole" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_deliveryFeeUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_PriceUnitText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_deliveryFee"
+                    app:layout_constraintEnd_toEndOf="@id/pay_tv_payTotal_wholePriceUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_deliveryFee" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_deliveryFeeAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_priceText"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_deliveryFeeUnit"
+                    app:layout_constraintEnd_toStartOf="@id/pay_tv_payTotal_deliveryFeeUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_deliveryFeeUnit" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_couponUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_PriceUnitText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_couponUse"
+                    app:layout_constraintEnd_toEndOf="@id/pay_tv_payTotal_deliveryFeeUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_couponUse" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_couponAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_priceText"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_couponUnit"
+                    app:layout_constraintEnd_toStartOf="@id/pay_tv_payTotal_couponUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_couponUnit" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_pointUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_PriceUnitText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_pointUse"
+                    app:layout_constraintEnd_toEndOf="@id/pay_tv_payTotal_couponUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_pointUse" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_priceText"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_pointUnit"
+                    app:layout_constraintEnd_toStartOf="@id/pay_tv_payTotal_pointUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_pointUnit" />
+
+                <LinearLayout
+                    android:id="@+id/pay_boundaryLine_payTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/pay_boundaryLine_payTotalColor"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_pointUse" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_finalDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/pay_layout_payTotal_finalTitleText"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_boundaryLine_payTotal" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_finalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/pay_layout_payTotal_priceText"
+                    android:textColor="@color/todayHouse_mainColor"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_finalUnit"
+                    app:layout_constraintEnd_toStartOf="@id/pay_tv_payTotal_finalUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_finalUnit" />
+
+                <TextView
+                    android:id="@+id/pay_tv_payTotal_finalUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_layout_payTotal_PriceUnitText"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/pay_tv_payTotal_finalDefault"
+                    app:layout_constraintEnd_toEndOf="@id/pay_tv_payTotal_pointUnit"
+                    app:layout_constraintTop_toTopOf="@id/pay_tv_payTotal_finalDefault" />
+
+                <LinearLayout
+                    android:id="@+id/pay_layout_pointTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/pay_tv_payTotal_finalUnit"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_payTotal_finalUnit">
+
+                    <TextView
+                        android:id="@+id/pay_tv_payTotal_pointFinal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:text="@string/pay_layout_point_Number"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:text="@string/pay_layout_point_NumberUnit"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pay_layout_payTotal_pointDefaultText"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pay_layout_terms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/pay_layout_terms_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pay_layout_payTotal">
+
+                <CheckBox
+                    android:id="@+id/pay_cb_terms_essentialMain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pay_layout_terms_essentialText_1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pay_layout_terms_essential_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/pay_terms_backgroundColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_cb_terms_essentialMain">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/pay_layout_terms_essential_1_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <CheckBox
+                            android:id="@+id/pay_cb_terms_essential_1_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:text="@string/pay_layout_terms_essentialText_2"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/terms_icon"
+                            app:layout_constraintBottom_toBottomOf="@id/pay_layout_terms_essential_1_main"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/pay_layout_terms_essential_1_main" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/pay_layout_terms_essential_1_sub_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pay_layout_terms_essential_1_main">
+
+                        <CheckBox
+                            android:id="@+id/pay_cb_terms_essential_1_sub_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:text="@string/pay_layout_terms_essentialText_2_sub_1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/terms_more_icon"
+                            app:layout_constraintBottom_toBottomOf="@id/pay_cb_terms_essential_1_sub_1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/pay_cb_terms_essential_1_sub_1" />
+
+                        <CheckBox
+                            android:id="@+id/pay_cb_terms_essential_1_sub_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_layout_terms_essentialText_2_sub_2"
+                            app:layout_constraintStart_toStartOf="@id/pay_cb_terms_essential_1_sub_1"
+                            app:layout_constraintTop_toBottomOf="@id/pay_cb_terms_essential_1_sub_1" />
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/terms_more_icon"
+                            app:layout_constraintBottom_toBottomOf="@id/pay_cb_terms_essential_1_sub_2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/pay_cb_terms_essential_1_sub_2" />
+
+                        <LinearLayout
+                            android:id="@+id/terms_boundaryLine_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/pay_cb_terms_essential_1_sub_2" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pay_layout_terms_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pay_terms_backgroundColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pay_layout_terms">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pay_layout_terms_2_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/pay_layout_terms_2_main"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
+                    <CheckBox
+                        android:id="@+id/pay_cb_terms_essential_2_main"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/pay_method_icon_1" />
+                        android:layout_marginStart="20dp"
+                        android:text="@string/pay_layout_terms_essentialText_3"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/terms_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/pay_cb_terms_essential_2_main"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/pay_cb_terms_essential_2_main" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/pay_layout_terms_2_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_layout_terms_2_main">
+
+                    <TextView
+                        android:id="@+id/pay_tv_terms_2_sub_option_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/pay_layout_terms_essentialText_3_sub_1"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/terms_more_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/pay_tv_terms_2_sub_option_1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/pay_tv_terms_2_sub_option_1" />
+
+                    <TextView
+                        android:id="@+id/pay_tv_terms_2_sub_option_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/pay_layout_terms_essentialText_3_sub_2"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pay_tv_terms_2_sub_option_1" />
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/terms_more_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/pay_tv_terms_2_sub_option_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/pay_tv_terms_2_sub_option_2" />
+
+                    <TextView
+                        android:id="@+id/pay_tv_terms_2_sub_option_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/pay_layout_terms_essentialText_3_sub_3"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/pay_tv_terms_2_sub_option_2" />
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/terms_more_icon"
+                        app:layout_constraintBottom_toBottomOf="@id/pay_tv_terms_2_sub_option_3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/pay_tv_terms_2_sub_option_3" />
+
+                    <LinearLayout
+                        android:id="@+id/terms_boundaryLine_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/pay_boundaryLine_payTotalColor"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/pay_tv_terms_2_sub_option_3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pay_layout_terms_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pay_terms_backgroundColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pay_layout_terms_2">
+
+                <TextView
+                    android:id="@+id/pay_tv_terms_checkText_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pay_layout_terms_checkText"
+                    android:textColor="@color/pay_terms_checkTextColor"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/pay_tv_terms_checkText_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/pay_layout_terms_checkText_sub"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pay_tv_terms_checkText_1" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

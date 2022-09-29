@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/pay_method_btn"
+    android:layout_width="100dp"
+    android:layout_height="120dp">
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/iv_payMethod"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:src="@drawable/pay_method_icon_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_payMethod_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/pay_layout_payMethod_cardText"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_payMethod" />
+
+    <TextView
+        android:id="@+id/tv_payMethod_benefit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pay_layout_payMethod_payBenefit"
+        android:textColor="@color/todayHouse_mainColor"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_payMethod_title" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

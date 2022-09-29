@@ -29,34 +29,30 @@
     <string name="pay_layout_point_NumberUnit">P</string>
     <string name="pay_layout_payMethod_mainTitle">결제 수단</string>
     <string name="pay_layout_payMethod_cardText">카드</string>
-    <string name="pay_layout_payMethod_inputText">무통장입금</string>
-    <string name="pay_layout_payMethod_kakaoPay">카카오페이</string>
-    <string name="pay_layout_payMethod_kakaoBenefit">1만원 즉시할인</string>
-    <string name="pay_layout_payMethod_toss">토스</string>
-    <string name="pay_layout_payMethod_tossBenefit">3000원 적립</string>
-    <string name="pay_layout_payMethod_naverPay">네이버페이</string>
-    <string name="pay_layout_payMethod_naverPayBenefit">최대5000적립</string>
-    <string name="pay_layout_payMethod_payco">페이코</string>
-    <string name="pay_layout_payMethod_paycoBenefit">최대3%적립</string>
-    <string name="pay_layout_payMethod_phone">핸드폰</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <string name="pay_layout_payMethod_payBenefit">1만원 즉시할인</string>
+    <string name="pay_layout_payTotal_mainTitleText">결제금액</string>
+    <string name="pay_layout_payTotal_subTitleText_1">총 상품 금액</string>
+    <string name="pay_layout_payTotal_subTitleText_2">배송비</string>
+    <string name="pay_layout_payTotal_subTitleText_3">쿠폰 사용</string>
+    <string name="pay_layout_payTotal_subTitleText_4">포인트 사용</string>
+    <string name="pay_layout_payTotal_finalTitleText">최종 결제 금액</string>
+    <string name="pay_layout_payTotal_wholePriceText">18900</string>
+    <string name="pay_layout_payTotal_priceText">0</string>
+    <string name="pay_layout_payTotal_PriceUnitText">원</string>
+    <string name="pay_layout_payTotal_pointNumberText">19</string>
+    <string name="pay_layout_payTotal_pointNumberUnitText">P</string>
+    <string name="pay_layout_payTotal_pointDefaultText">적립 예정</string>
+    <string name="pay_layout_terms_essentialText_1">아래 내용에 모두 동의합니다. (필수)</string>
+    <string name="pay_layout_terms_essentialText_2">개인정보 수집 이용 및 제 3자 제공 동의 (필수)</string>
+    <string name="pay_layout_terms_essentialText_2_sub_1">개인정보 제 3자 제공</string>
+    <string name="pay_layout_terms_essentialText_2_sub_2">개인정보 수집 및 이용</string>
+    <string name="pay_layout_terms_essentialText_3">결제대행 서비스 이용약관 동의 (필수)</string>
+    <string name="pay_layout_terms_essentialText_symbol">・</string>
+    <string name="pay_layout_terms_essentialText_3_sub_1">・ 토스페이먼츠(주)</string>
+    <string name="pay_layout_terms_essentialText_3_sub_2">・ 엔에이치엔한국사이버결제(주)</string>
+    <string name="pay_layout_terms_essentialText_3_sub_3">・ NICE페이먼츠(주)</string>
+    <string name="pay_layout_terms_checkText">본인은 만 14세 이상이며, 주문 내용을 확인하였습니다.</string>
+    <string name="pay_layout_terms_checkText_sub">(주)버킷플레이스는 통신판매중개자로 거래 당사자가 아니므로, 판매자가 등록한 상품정보 및 거래 등에 대해 책임을 지지 않습니다 (단, (주)버킷플레이스가 판매자로 등록 판매한 상품은판매자로서 책임을 부담합니다.)</string>
 
 
     <!-- BuyActivity -->
