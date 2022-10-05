@@ -1,6 +1,7 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store
 
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreHomeResponse
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreAdResponse
 
 interface StoreFragmentInterface {
 
@@ -8,4 +9,9 @@ interface StoreFragmentInterface {
     fun onGetHomeMainSuccess(response: StoreHomeResponse)
 
     fun onGetHomeMainFailure(message: String)
+
+    // 스토어 홈 광고
+    fun onGetHomeAdSuccess(response: StoreAdResponse)
+
+    fun onGetHomeAdFailure(message: String)
 }

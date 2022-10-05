@@ -1,12 +1,9 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main.store.buy
 
+import android.content.Intent
 import android.graphics.Paint
-import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ScrollView
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,15 +12,13 @@ import com.google.android.material.tabs.TabLayout
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityBuyBinding
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.StoreFragmentInterface
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.StoreService
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.change.ReturnChangeActivity
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.inquiry.InquiryActivity
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.buy.model.*
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreHomeResponse
 import com.kjy.risingtest_todayhouse_teamb.util.BuyBottomSheet
 import java.text.DecimalFormat
-import kotlin.math.abs
 
-class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate), StoreFragmentInterface, BuyReviewInterface {
+class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate), BuyActivityInterface{
 
     // 상품 구매 액티비티 - 유저 스타일링샷 데이터를 담는 리스트
     private var buyUserList = mutableListOf<BuyUserData>()
@@ -32,21 +27,41 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
     private val commentAdapter = ReviewCommentAdapter()
 
 
+    // 상품 정보 어댑터
     private val infoAdapter = BuyGoodsInfoAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        StoreService(this).tryGetHomeMain()
 
-//        BuyReviewService(this).tryGetReview()
-//
-//        InfoService(this).tryGetInfo()
+        // 리뷰 서비스에서 요청 함
+        BuyService(this).tryGetReview()
+
+        // 상세 이미지들 가져옴
+        BuyService(this).tryGetGoodsInfo()
+
+        // 디테일 정보들 가져옴
+        BuyService(this).tryGetDetail()
+
+        // 디테일 정보들 2 가져옴
+        BuyService(this).tryGetAdd()
 
 
         binding.buyBtnBack.setOnClickListener {
             onBackPressed()
             finish()
+        }
+
+        // 배송 교환 환불 버튼 킅릭시 배송/교환/환불 페이지로 이동
+        binding.buyLayoutReturn.setOnClickListener {
+            val intent = Intent(this, ReturnChangeActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 문의 버튼 클릭시 문의 페이지로 이동
+        binding.buyLayoutQuestion.setOnClickListener {
+            val intent = Intent(this, InquiryActivity::class.java)
+            startActivity(intent)
         }
 
         // 상품 구매 액티비티 뷰페이저
@@ -170,13 +185,6 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
 
     private fun buyGoodsInfoRecycler() {
         binding.buyRvGoodsInfo.adapter = infoAdapter
-        val goodsInfoList = arrayListOf<BuyGoodsInfoData>(
-            BuyGoodsInfoData(R.drawable.buy_test_image_1),
-            BuyGoodsInfoData(R.drawable.buy_test_image_2),
-            BuyGoodsInfoData(R.drawable.buy_test_image_3),
-            BuyGoodsInfoData(R.drawable.buy_test_image_4)
-        )
-        infoAdapter.goodsInfoList = goodsInfoList
         val layoutManager = LinearLayoutManager(this)
         binding.buyRvGoodsInfo.layoutManager = layoutManager
     }
@@ -194,7 +202,34 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
         binding.buyRvReviewPhoto.layoutManager = layoutManager
     }
 
-    override fun onGetHomeMainSuccess(response: StoreHomeResponse) {
+    // 구매 액티비티의 리뷰 불러오기
+    override fun onGetReviewSuccess(response: ReviewResponse) {
+        if(response.isSuccess) {
+            Log.d("구매액티비티 리뷰", "${response.result}")
+            commentAdapter.reviewCommentList = response.result
+            commentAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onGetReviewFailure(message: String) {
+        Log.e("구매액티비티 리뷰", "$message")
+    }
+
+    override fun onGetGoodsInfoSuccess(response: InfoResponse) {
+        if(response.isSuccess) {
+            infoAdapter.goodsInfoList = response.result
+            infoAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onGetGoodsInfoFailure(message: String) {
+        Log.e("구매 액티비티 상세이미지", "$message")
+    }
+
+    // 상세 정보들 가져오기
+    override fun onGetDetailSuccess(response: DetailResponse) {
+
+        Log.d("상세정보들 가져오기", "${response.result}")
 
         val decFormat = DecimalFormat("#,###")
 
@@ -212,23 +247,18 @@ class BuyActivity : BaseActivity<ActivityBuyBinding>(ActivityBuyBinding::inflate
             binding.buyTvDeliveryPrice.text = Store.deliveryPrice.toString()
             binding.buyTvTotalReview.text = Store.reviewCount.toString()
         }
-
     }
 
-    override fun onGetHomeMainFailure(message: String) {
-
+    override fun onGetDetailFailure(message: String) {
+        Log.e("상세정보들 가져오기", "$message")
     }
 
-    override fun onGetReviewSuccess(response: ReviewResponse) {
-        if(response.isSuccess) {
-            commentAdapter.reviewCommentList = response.result
-            commentAdapter.notifyDataSetChanged()
-        }
+    override fun onGetAddSuccess(response: AddResponse) {
+        binding.buyTvDeliveryMethod.text = response.result.deliveryMethod
+        binding.buyTvScrapCount.text = response.result.scrapCount.toString()
     }
 
-    override fun onGetReviewFailure(message: String) {
-        showCustomToast("오류 : $message")
+    override fun onGetAddFailure(message: String) {
+        Log.e("상세정보들 가져오기 두번째", "$message")
     }
-
-
 }

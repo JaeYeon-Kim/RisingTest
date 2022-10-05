@@ -6,7 +6,7 @@ import java.sql.Timestamp
 data class ResultReview (
     @SerializedName("nickname") val nickname: String,
     @SerializedName("starRating") val starRating: Int,
-    @SerializedName("createdDate") val reviewDate: Timestamp,
+    @SerializedName("createdDate") val reviewDate: String,
     @SerializedName("optional") val buyOption: String,
     @SerializedName("writing") val writing: String
         )

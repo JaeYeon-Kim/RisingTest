@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.store.buy.inquiry.InquiryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inquiry_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_mainTitle"
+            app:layout_constraintTop_toTopOf="@id/inquiry_tv_mainTitle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/loginemail_back_btn" />
+
+        <TextView
+            android:id="@+id/inquiry_tv_mainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inquiry_titleText"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:text="@string/inquiry_titleNumberText"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_mainTitle"
+            app:layout_constraintTop_toTopOf="@id/inquiry_tv_mainTitle"
+            app:layout_constraintStart_toEndOf="@id/inquiry_tv_mainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/inquiry_btn_edit"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_mainTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/inquiry_tv_mainTitle"
+            android:background="@color/transparent_backgroundColor"
+            android:text="@string/inquiry_titleBtnText"
+            android:textSize="18sp"
+            android:textColor="@color/todayHouse_mainColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/inquiry_boundaryLine_backgroundColor"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/inquiry_rv"
+        app:layout_constraintTop_toBottomOf="@id/inquiry_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_btn"
+        android:text="상품"
+        android:background="@drawable/edit_type_btn_selector"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

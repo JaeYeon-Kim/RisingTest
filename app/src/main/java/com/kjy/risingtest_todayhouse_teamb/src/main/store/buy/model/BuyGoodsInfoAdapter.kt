@@ -8,28 +8,28 @@ import com.kjy.risingtest_todayhouse_teamb.databinding.GoodsInfoListBinding
 
 class BuyGoodsInfoAdapter: RecyclerView.Adapter<GoodsInfoHolder>() {
 
-    var goodsInfoList = ArrayList<BuyGoodsInfoData>()
+    var goodsInfoList = ArrayList<ResultInfo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoodsInfoHolder {
-
         val binding = GoodsInfoListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GoodsInfoHolder(binding)
     }
 
     override fun onBindViewHolder(holder: GoodsInfoHolder, position: Int) {
-        val infoData = goodsInfoList[position]
-        return holder.setGoodsInfo(infoData)
+        val goodsInfoData = goodsInfoList[position]
+        holder.setGoodsInfo(goodsInfoData)
     }
 
     override fun getItemCount(): Int {
         return goodsInfoList.size
     }
+
 }
 
 class GoodsInfoHolder(val binding: GoodsInfoListBinding): RecyclerView.ViewHolder(binding.root) {
-    fun setGoodsInfo(goodsInfoData: BuyGoodsInfoData) {
+    fun setGoodsInfo(goodsInfoItem: ResultInfo) {
         Glide.with(itemView)
-            .load(goodsInfoData.uri)
+            .load(goodsInfoItem.contents)
             .into(binding.buyIvGoodsInfo)
     }
 

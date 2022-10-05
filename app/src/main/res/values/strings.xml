@@ -1,10 +1,98 @@
 <resources>
 
+
+    <!-- InquiryEditActivity -->
+    <string name="edit_titleText">상품 문의하기</string>
+    <string name="edit_inquiryType_titleText">문의유형</string>
+    <string name="edit_inquiryType_list_1">상품</string>
+    <string name="edit_inquiryType_list_2">배송</string>
+    <string name="edit_inquiryType_list_3">반품</string>
+    <string name="edit_inquiryType_list_4">교환</string>
+    <string name="edit_inquiryType_list_5">환불</string>
+    <string name="edit_inquiryType_list_6">기타</string>
+    <string name="edit_option_titleText">상품 및 옵션</string>
+    <string name="edit_option_list_1">베이지</string>
+    <string name="edit_checkBox_text">선택 안함</string>
+    <string name="edit_inquiryContent_titleText">문의 내용</string>
+    <string name="edit_inquiryContent_hintText">문의 내용을 입력하세요</string>
+    <string name="edit_terms_list_1">- 문의내용에 대한 답변은 마이페이지&gt;나의 쇼핑&gt;나의 문의내역 또는 상품 상세페이지에서 확인 가능합니다.</string>
+    <string name="edit_terms_list_2">- 배송,결제,교환/반품 문의는 고객센터로 문의 바랍니다.</string>
+    <string name="edit_terms_list_3">- 상품과 관련 없거나 부적합한 내용은 기재하시는 경우, 사전 고지 없이 삭제 또는 차단될 수 있습니다.</string>
+    <string name="edit_terms_completeBtn_text">완료</string>
+
+
+
+    <!-- Inquiry Activity -->
+    <string name="inquiry_titleText">문의</string>
+    <string name="inquiry_titleNumberText">100</string>
+    <string name="inquiry_titleBtnText">문의하기</string>
+    <string name="inquiry_type_text">상품</string>
+    <string name="inquiry_answerProgress_text">답변완료</string>
+    <string name="inquiry_nickname_text">홍길동</string>
+    <string name="inquiry_questionDate_text">2022.09.26</string>
+    <string name="inquiry_notice_text">신고</string>
+    <string name="inquiry_question">안녕하세요. 상품 언제쯤 도착할까요?</string>
+    <string name="inquiry_answer">안녕하세요 고객님 네이쳐리빙입니다. 상품 출고되었습니다. 감사합니다.</string>
+    <string name="inquiry_storeName_text">네이쳐리빙</string>
+    <string name="inquiry_answerDate_text">2022.09.26</string>
+
+
+    <!-- ReturnChangeActivity -->
+    <string name="return_titleText">배송/교환/환불</string>
+    <string name="return_deliveryInfo_titleText">배송 관련 안내</string>
+    <string name="return_deliveryMethod_titleText">배송방법</string>
+    <string name="return_deliveryMethod_contentText">일반택배상품</string>
+    <string name="return_deliveryFee_titleText">배송비</string>
+    <string name="return_deliveryFee_contentText">무료</string>
+    <string name="return_payMethod_titleText">결제방식</string>
+    <string name="return_payMethod_contentText">착불</string>
+    <string name="return_deliveryAddFee_titleText">도서산간 추가 배송비</string>
+    <string name="return_deliveryAddFee_contentText">3,000원</string>
+    <string name="return_UndeliverableArea_titleText">배송불가지역</string>
+    <string name="return_UndeliverableArea_contentText">배송불가 지역이 없습니다.</string>
+    <string name="return_returnInfo_titleText">교환 환불</string>
+    <string name="return_returnFee_titleText">반품배송비</string>
+    <string name="return_returnFee_contentText">편도 3,000원 (최초 배송비가 무료인 경우 6,000원 부과)</string>
+    <string name="return_changeDelivery_titleText">교환배송</string>
+    <string name="return_changeDelivery_contentText">6,000원</string>
+    <string name="return_where">교환 환불</string>
+    <string name="return_sendArea_titleText">보내실 곳</string>
+    <string name="return_sendArea_contentText">(18525) 경기 화성시 팔탄면 주석로 778번길 18 (기천리) 네이쳐리빙</string>
+    <string name="return_returnPeriod_titleText">반품/교환 사유에 따른 요청 가능 기간</string>
+    <string name="return_returnPeriod_subText">반품 시 먼저 판매자와 연락하셔서 반품사유, 택배사, 배송비, 반품지 주소 등을 협의하신 후 반품상품을 발송해 주시기 바랍니다.</string>
+    <string name="return_returnPeriod_list_1">1 구매자 단순 변심은 상품 수령 후 7일 이내</string>
+    <string name="return_returnPeriod_list_1_option">(구매자 반품배송비 부담)</string>
+    <string name="return_returnPeriod_list_2">2 표시/광고와 상이, 상품하자의 경우 상품 수령 후 3개월 이내 혹은 표시/광고와 다른 사실을 안 날로부터 30일 이내. 둘 중 하나 경과 시 반품/교환 불가</string>
+    <string name="return_returnPeriod_list_2_option">(판매자 반품배송비 부담)</string>
+    <string name="return_returnImpossible_titleText">반품/교환 불가능 사유</string>
+    <string name="return_returnImpossible_list_1">1 반품요청기간이 지난 경우</string>
+    <string name="return_returnImpossible_list_2">2 구매자의 책임 있는 사유로 상품 등이 멸실 또는 훼손된 경우(단, 상품의 내용을 확인하기 위하여 포장 등을 훼손한 경우는 제외)</string>
+    <string name="return_returnImpossible_list_3">3 포장을 개봉하였으나 포장이 훼손되어 상품가치가 현저히 상실된 경우 (예: 식품, 화장품)</string>
+    <string name="return_returnImpossible_list_4">4 구매자의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 (라벨이 떨어진 의류 또는 태그가 떨어진 명품관 상품인 경우)</string>
+    <string name="return_returnImpossible_list_5">5 시간의 경과에 의하여 재판매가 곤란할 정도로 상품 등의 가치가 현저히 감소한 경우 (예: 식품, 화장품)</string>
+    <string name="return_returnImpossible_list_6">6 고객주문 확인 후 상품제작에 들어가는 주문제작상품</string>
+    <string name="return_returnImpossible_list_7">7 복제가 가능한 상품 등의 포장을 훼손한 경우 (CD/DVD/GAME/도서의 경우 포장 개봉 시)</string>
+    <string name="return_returnImpossible_subText">아래와 같은 경우 반품/교환이 불가능합니다.</string>
+    <string name="return_sellerInfo_titleText">판매자 정보</string>
+    <string name="return_storeTitle_titleText">상호</string>
+    <string name="return_storeTitle_contentText">주식회사 네이쳐리빙</string>
+    <string name="return_sellerTitle_titleText">대표</string>
+    <string name="return_sellerTitle_cotentText">이주봉</string>
+    <string name="return_storeArea_titleText">사업장소재지</string>
+    <string name="return_storeArea_contentText">경기 화성시 팔탄면 주석로778번길 18 네이쳐리빙</string>
+    <string name="return_storePhoneNumber_titleText">고객센터 전화번호</string>
+    <string name="return_storePhoneNumber_contentText">031-381-8982</string>
+    <string name="return_storeEmail_titleText">E-mail</string>
+    <string name="return_storeEmail_contentText">nature1990@naver.com</string>
+    <string name="return_businessNumber_titleText">사업자 등록번호</string>
+    <string name="return_businessNumber_contentText">143-81-05034</string>
+    <string name="return_mailOrderNumber_titleText">통신판매업 신고번호</string>
+    <string name="return_mailOrderNumber_contentText">2017-화성팔탄-0054</string>
+
+
     <!-- CompleteActivity -->
     <string name="complete_titleText">결과</string>
     <string name="complete_btnText">주문현황보기</string>
-
-
 
 
     <!-- PayActivity -->
@@ -86,9 +174,9 @@
     <string name="buy_dcPriceText">19900</string>
     <string name="buy_benefitTitleText">혜택</string>
     <string name="buy_deliveryTitleText">배송</string>
-    <string name="buy_pointText">20</string>
+    <string name="buy_pointText">20P</string>
     <string name="buy_pointBenefitText">적립 (WELCOME 0.1% 적립)</string>
-    <string name="buy_deliveryPriceText">3000</string>
+    <string name="buy_deliveryPriceText">3,000</string>
     <string name="buy_deliveryBenefitText">(80,000원 이상 무료배송)</string>
     <string name="buy_deliveryMethodText">주문제작 | 일반택배</string>
     <string name="buy_deliveryExceptionText">제주도/도서산간 4,000원</string>

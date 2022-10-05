@@ -255,6 +255,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/pay_edit_custom"
                     app:layout_constraintBottom_toBottomOf="@id/pay_tv_layout_buyerDetail_name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/pay_tv_layout_buyerDetail_name"
@@ -275,6 +277,8 @@
                     android:id="@+id/pay_et_buyerDetail_email"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/pay_edit_custom"
                     app:layout_constraintBottom_toBottomOf="@id/pay_tv_layout_buyerDetail_Email"
                     app:layout_constraintEnd_toStartOf="@id/pay_iv_buyDetail_emailIcon"
                     app:layout_constraintStart_toStartOf="@id/pay_et_buyerDetail_name"
@@ -324,6 +328,8 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/pay_edit_custom"
                     app:layout_constraintBottom_toBottomOf="@id/pay_tv_layout_buyerDetail_phoneNumber"
                     app:layout_constraintEnd_toEndOf="@id/pay_et_buyerDetail_name"
                     app:layout_constraintStart_toEndOf="@id/pay_spin_phoneSelect"
@@ -367,6 +373,15 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/order_tv_hidden"
+                        android:text="1건"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                     <ImageView
                         android:id="@+id/pay_btn_expanded_orderLayout"
@@ -431,6 +446,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/pay_layout_couponCheck_backgroundColor"
+                    app:layout_constraintBottom_toTopOf="@id/pay_btn_couponLayout_expandable_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/pay_tv_coupon_title">

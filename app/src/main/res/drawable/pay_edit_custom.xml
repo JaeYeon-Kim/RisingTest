@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- editText 포커스 받았을 경우 -->
+    <item android:state_focused="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <stroke
+                android:width="3dp"
+                android:color="@color/pay_edit_strokeColor_focused"/>
+            <corners
+                android:radius="4dp"/>
+            <solid
+                android:color="@color/white"/>
+        </shape>
+    </item>
+
+    <!-- editText 포커스를 받지 않았을 경우 -->
+    <item android:state_focused="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <stroke
+                android:width="1dp"
+                android:color="@color/pay_edit_strokeColor"/>
+            <corners
+                android:radius="4dp"/>
+            <solid
+                android:color="@color/white"/>
+        </shape>
+    </item>
+
+
+
+
+
+</selector>

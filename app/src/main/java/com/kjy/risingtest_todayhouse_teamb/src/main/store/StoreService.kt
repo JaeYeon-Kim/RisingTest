@@ -2,6 +2,7 @@ package com.kjy.risingtest_todayhouse_teamb.src.main.store
 
 import android.util.Log
 import com.kjy.risingtest_todayhouse_teamb.config.ApplicationClass
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreAdResponse
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreHomeResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,6 +24,25 @@ class StoreService(val storeFragmentInterface: StoreFragmentInterface) {
 
             override fun onFailure(call: Call<StoreHomeResponse>, t: Throwable) {
                 storeFragmentInterface.onGetHomeMainFailure(t.message ?: "통신 오류")
+            }
+
+        })
+    }
+
+    fun tryGetHomeAd() {
+        val storeRetrofitInterface = ApplicationClass.sRetrofit.create(StoreRetrofitInterface::class.java)
+        storeRetrofitInterface.getHomeAd().enqueue(object: Callback<StoreAdResponse>{
+            override fun onResponse(call: Call<StoreAdResponse>, response: Response<StoreAdResponse>) {
+                if(response.isSuccessful) {
+                    Log.d("광고 값이 잘들어왔나요?", "${response.body()}")
+                    storeFragmentInterface.onGetHomeAdSuccess(response.body() as StoreAdResponse)
+                }else {
+                    Log.e("통신이 실패", "onResponse 실패")
+                }
+            }
+
+            override fun onFailure(call: Call<StoreAdResponse>, t: Throwable) {
+                storeFragmentInterface.onGetHomeAdFailure(t.message?: "통신 오류")
             }
 
         })

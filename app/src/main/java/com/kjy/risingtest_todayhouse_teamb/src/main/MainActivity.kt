@@ -1,10 +1,10 @@
 package com.kjy.risingtest_todayhouse_teamb.src.main
 
 import android.animation.ObjectAnimator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.view.animation.AnimationUtils
+import com.kakao.sdk.common.util.Utility
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseActivity
 import com.kjy.risingtest_todayhouse_teamb.databinding.ActivityMainBinding
@@ -22,6 +22,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 카카오 로그인 연동에 필요한 KeyHASH 값을 구한다.
+//        val keyHash = Utility.getKeyHash(this)
+//        Log.d("Hash", keyHash)
+
 
         // 바텀 네비게이션 테마색 변경을 막아줌
         showBottomIcon()

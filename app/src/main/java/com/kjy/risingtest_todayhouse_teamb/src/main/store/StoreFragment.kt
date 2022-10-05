@@ -11,15 +11,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.kjy.risingtest_todayhouse_teamb.R
 import com.kjy.risingtest_todayhouse_teamb.config.BaseFragment
 import com.kjy.risingtest_todayhouse_teamb.databinding.FragmentStoreBinding
+import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.StoreHomeResponse
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.*
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerAdapter
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.pager.StorePagerData
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.popular.StorePopularAdapter
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.popular.StorePopularData
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.recent.StoreRecentAdapter
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.recent.StoreRecentData
 import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRelativeAdapter
-import com.kjy.risingtest_todayhouse_teamb.src.main.store.model.relative.StoreRelativeData
 
 
 class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::bind, R.layout.fragment_store), StoreFragmentInterface{
@@ -36,11 +34,17 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
     private val popularAdapter = StorePopularAdapter()
 
+    private val pagerAdapter = StorePagerAdapter()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 스토어 홈 메인의 리사이클러뷰들을 불러옴
         StoreService(this).tryGetHomeMain()
+
+        // 스토어 홈 메인의 광고 뷰페이저 이미지 들을 불러옴
+        StoreService(this).tryGetHomeAd()
 
         // 스와이프 리프레시 레이아웃 기능 넣기
         // false로 해주어야 새로고침 아이콘이 사라짐
@@ -126,16 +130,8 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
 
 
     private fun storeAdViewpager() {
-        val adapter = StorePagerAdapter()
-        binding.storeViewPager.adapter = adapter
+        binding.storeViewPager.adapter = pagerAdapter
         binding.storeIndicatorVp.attachTo(binding.storeViewPager)
-        storePagerList.apply {
-            add(StorePagerData(R.drawable.store_viewpager_image_1))
-            add(StorePagerData(R.drawable.store_viewpager_image_2))
-            add(StorePagerData(R.drawable.store_viewpager_image_3))
-            add(StorePagerData(R.drawable.store_viewpager_image_4))
-        }
-        adapter.storePagerList = storePagerList
         binding.storeViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
 
@@ -178,6 +174,18 @@ class StoreFragment : BaseFragment<FragmentStoreBinding>(FragmentStoreBinding::b
     }
 
     override fun onGetHomeMainFailure(message: String) {
+        showCustomToast("오류 : $message")
+    }
+
+    // 스토어 홈의 광고 뷰페이저 이미지를 받아오는 API 에 대한 호출
+    override fun onGetHomeAdSuccess(response: StoreAdResponse) {
+        if(response.isSuccess) {
+            pagerAdapter.storePagerList = response.result
+            pagerAdapter.notifyDataSetChanged()
+        }
+    }
+
+    override fun onGetHomeAdFailure(message: String) {
         showCustomToast("오류 : $message")
     }
 

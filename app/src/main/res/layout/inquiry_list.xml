@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/inquiry_layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/inquiry_tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inquiry_type_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="/" />
+
+        <TextView
+            android:id="@+id/inquiry_tv_answerProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/inquiry_answerProgress_text"
+            android:textColor="@color/todayHouse_mainColor" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/inquiry_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/inquiry_nickname_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="|" />
+
+        <TextView
+            android:id="@+id/inquiry_tv_questionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/inquiry_questionDate_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/inquiry_notice_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/inquiry_iv_question"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/inquiry_question_icon"
+        app:layout_constraintStart_toStartOf="@id/inquiry_layout_top"
+        app:layout_constraintTop_toBottomOf="@id/inquiry_layout_top" />
+
+    <TextView
+        android:id="@+id/inquiry_tv_question"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/inquiry_question"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/inquiry_iv_question"
+        app:layout_constraintTop_toTopOf="@id/inquiry_iv_question" />
+
+    <ImageView
+        android:id="@+id/inquiry_iv_answer"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/inquiry_answer_icon"
+        app:layout_constraintStart_toStartOf="@id/inquiry_iv_question"
+        app:layout_constraintTop_toBottomOf="@id/inquiry_iv_question" />
+
+    <TextView
+        android:id="@+id/inquiry_tv_answer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/inquiry_answer"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/inquiry_iv_answer"
+        app:layout_constraintTop_toTopOf="@id/inquiry_iv_answer" />
+
+    <TextView
+        android:id="@+id/inquiry_tv_storeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/inquiry_storeName_text"
+        app:layout_constraintStart_toStartOf="@id/inquiry_tv_answer"
+        app:layout_constraintTop_toBottomOf="@id/inquiry_tv_answer" />
+
+    <TextView
+        android:id="@+id/inquiry_tv_bottomIcon"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_storeName"
+        app:layout_constraintTop_toTopOf="@id/inquiry_tv_storeName"
+        app:layout_constraintStart_toEndOf="@id/inquiry_tv_storeName"
+        android:text="|"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/inquiry_tv_answerDate"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_bottomIcon"
+        app:layout_constraintTop_toTopOf="@id/inquiry_tv_bottomIcon"
+        app:layout_constraintStart_toEndOf="@id/inquiry_tv_bottomIcon"
+        android:text="@string/inquiry_answerDate_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/inquiry_tv_answerDate"
+        app:layout_constraintTop_toTopOf="@id/inquiry_tv_answerDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/inquiry_expandable_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

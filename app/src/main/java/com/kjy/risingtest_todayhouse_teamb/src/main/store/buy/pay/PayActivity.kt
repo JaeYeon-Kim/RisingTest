@@ -95,7 +95,7 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
 
 
         // 주문자 레이아웃 버튼 클릭시
-        binding.payBtnExpandedBuyerLayout.setOnClickListener {
+        binding.payLayoutBuyer.setOnClickListener {
         if(binding.payLayoutBuyerDetail.visibility == View.VISIBLE) {
             binding.payLayoutBuyerDetail.visibility = View.GONE
             binding.payLayoutBuyerLayoutTitle.visibility = View.VISIBLE
@@ -111,6 +111,43 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
                 rotation(180f)
             }
         }
+        }
+
+
+        // 주문상품 레이아웃 클릭시 하단 리사이클러뷰를 접히게함
+        binding.payBtnOrderLayoutExpandable.setOnClickListener {
+            if(binding.payRvOrderLayout.visibility == View.VISIBLE) {
+                binding.payRvOrderLayout.visibility = View.GONE
+                binding.orderTvHidden.visibility = View.VISIBLE
+                binding.payBtnExpandedOrderLayout.animate().apply {
+                    duration = 300
+                    rotation(0f)
+                }
+            }else {
+                binding.payRvOrderLayout.visibility = View.VISIBLE
+                binding.orderTvHidden.visibility = View.GONE
+                binding.payBtnExpandedOrderLayout.animate().apply {
+                    duration = 300
+                    rotation(180f)
+                }
+            }
+        }
+
+        // 쿠폰 레이아웃 애니메이션 주기
+        binding.payBtnCouponLayoutExpandable.setOnClickListener {
+            if(binding.payBtnCouponLayoutExpandableDetail.visibility == View.VISIBLE) {
+                binding.payBtnCouponLayoutExpandableDetail.visibility = View.GONE
+                binding.payBtnCouponLayout.animate().apply {
+                    duration = 300
+                    rotation(0f)
+                }
+            }else {
+                binding.payBtnCouponLayoutExpandableDetail.visibility = View.VISIBLE
+                binding.payBtnCouponLayout.animate().apply {
+                    duration = 300
+                    rotation(180f)
+                }
+            }
         }
         }
 

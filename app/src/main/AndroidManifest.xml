@@ -14,11 +14,34 @@
         android:theme="@style/Theme.RisingTest_TodayHouse_TeamB"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaod023ca3d42b2e874ec015f792d7e5a42" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".src.main.store.buy.inquiry.edit.InquiryEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".src.main.store.buy.inquiry.InquiryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".src.main.store.buy.change.ReturnChangeActivity"
+            android:exported="true" />
+        <activity
             android:name=".src.main.store.buy.pay.complete.CompleteActivity"
             android:exported="true" />
         <activity
             android:name=".src.main.store.buy.pay.PayActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".src.main.store.buy.BuyActivity"
             android:exported="true" />
